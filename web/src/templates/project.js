@@ -37,7 +37,7 @@ export const query = graphql`
       slug {
         current
       }
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 5 })
     }
   }
 `;
