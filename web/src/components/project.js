@@ -10,7 +10,7 @@ import RoleList from "./role-list";
 import styles from "./project.module.css";
 
 function Project(props) {
-  const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
+  const { _rawBody, title, mainImage, members, publishedAt } = props;
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
@@ -40,7 +40,7 @@ function Project(props) {
               </div>
             )}
             {members && members.length > 0 && <RoleList items={members} title="Project members" />}
-            {categories && categories.length > 0 && (
+            {/* {categories && categories.length > 0 && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
@@ -49,23 +49,7 @@ function Project(props) {
                   ))}
                 </ul>
               </div>
-            )}
-            {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
-                <ul>
-                  {relatedProjects.map(project => (
-                    <li key={`related_${project._id}`}>
-                      {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
-                      ) : (
-                        <span>{project.title}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            )} */}
           </aside>
         </div>
       </Container>
