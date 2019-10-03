@@ -10,7 +10,7 @@ import RoleList from './role-list'
 import styles from './project.module.css'
 
 function Project (props) {
-  const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
+  const {_rawBody, title, categories, mainImage, members, projectDate, relatedProjects} = props
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
@@ -32,11 +32,11 @@ function Project (props) {
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
+            {projectDate && (
+              <div className={styles.projectDate}>
+                {differenceInDays(new Date(projectDate), new Date()) > 3
+                  ? distanceInWords(new Date(projectDate), new Date())
+                  : format(new Date(projectDate), 'MMMM Do YYYY')}
               </div>
             )}
             {members && members.length > 0 && <RoleList items={members} title='Project members' />}

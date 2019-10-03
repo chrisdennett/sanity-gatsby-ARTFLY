@@ -52,17 +52,17 @@ export default {
   preview: {
     select: {
       title: "title",
-      publishedAt: "publishedAt",
+      projectDate: "projectDate",
       slug: "slug",
       media: "mainImage"
     },
-    prepare({ title = "No title", publishedAt, slug = {}, media }) {
-      const dateSegment = format(publishedAt, "YYYY/MM");
+    prepare({ title = "No title", projectDate, slug = {}, media }) {
+      const dateSegment = format(projectDate, "YYYY/MM");
       const path = `/${dateSegment}/${slug.current}/`;
       return {
         title,
         media,
-        subtitle: publishedAt ? path : "Missing publishing date"
+        subtitle: projectDate ? path : "Missing project date"
       };
     }
   }
