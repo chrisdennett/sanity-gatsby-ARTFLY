@@ -9,11 +9,11 @@ async function createProjectPages(graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityProject(filter: { slug: { current: { ne: null } }, projectDate: { ne: null } }) {
+      allSanityProject(filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }) {
         edges {
           node {
             id
-            projectDate
+            publishedAt
             slug {
               current
             }
@@ -28,7 +28,7 @@ async function createProjectPages(graphql, actions, reporter) {
   const projectEdges = (result.data.allSanityProject || {}).edges || [];
 
   projectEdges
-    .filter(edge => !isFuture(edge.node.projectDate))
+    .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach(edge => {
       const id = edge.node.id;
       const slug = edge.node.slug.current;

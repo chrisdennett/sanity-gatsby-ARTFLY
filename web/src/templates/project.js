@@ -10,7 +10,7 @@ export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     project: sanityProject(id: { eq: $id }) {
       id
-      projectDate
+      publishedAt
       categories {
         _id
         title

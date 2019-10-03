@@ -20,8 +20,8 @@ export const query = graphql`
     }
     projects: allSanityProject(
       limit: 25
-      sort: { fields: [projectDate], order: DESC }
-      filter: { slug: { current: { ne: null } }, projectDate: { ne: null } }
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
       edges {
         node {

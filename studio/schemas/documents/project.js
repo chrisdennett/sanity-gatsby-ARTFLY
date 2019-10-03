@@ -38,7 +38,7 @@ export default {
       type: "figure"
     },
     {
-      name: "projectDate",
+      name: "publishedAt",
       title: "Project Date",
       type: "datetime"
     },
@@ -52,17 +52,17 @@ export default {
   preview: {
     select: {
       title: "title",
-      projectDate: "projectDate",
+      publishedAt: "publishedAt",
       slug: "slug",
       media: "mainImage"
     },
-    prepare({ title = "No title", projectDate, slug = {}, media }) {
-      const dateSegment = format(projectDate, "YYYY/MM");
+    prepare({ title = "No title", publishedAt, slug = {}, media }) {
+      const dateSegment = format(publishedAt, "YYYY/MM");
       const path = `/${dateSegment}/${slug.current}/`;
       return {
         title,
         media,
-        subtitle: projectDate ? path : "Missing project date"
+        subtitle: publishedAt ? path : "Missing project date"
       };
     }
   }
