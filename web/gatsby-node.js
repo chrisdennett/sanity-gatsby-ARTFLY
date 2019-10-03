@@ -27,21 +27,20 @@ async function createProjectPages(graphql, actions, reporter) {
 
   const projectEdges = (result.data.allSanityProject || {}).edges || [];
 
-  projectEdges
-    .filter(edge => !isFuture(edge.node.publishedAt))
-    .forEach(edge => {
-      const id = edge.node.id;
-      const slug = edge.node.slug.current;
-      const path = `/project/${slug}/`;
+  // .filter(edge => !isFuture(edge.node.publishedAt))
+  projectEdges.forEach(edge => {
+    const id = edge.node.id;
+    const slug = edge.node.slug.current;
+    const path = `/project/${slug}/`;
 
-      reporter.info(`Creating project page: ${path}`);
+    reporter.info(`Creating project page: ${path}`);
 
-      createPage({
-        path,
-        component: require.resolve("./src/templates/project.js"),
-        context: { id }
-      });
+    createPage({
+      path,
+      component: require.resolve("./src/templates/project.js"),
+      context: { id }
     });
+  });
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
