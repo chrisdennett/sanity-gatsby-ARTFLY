@@ -15,5 +15,9 @@
   },
   "devDependencies": {
     "lerna": "^3.13.1"
+  },
+  "dependencies": {
+    "get-youtube-id": "^1.0.1",
+    "react-youtube": "^7.9.0"
   }
 }
