@@ -1,6 +1,6 @@
 export default {
   title: "Portable Text",
-  name: "projectPortableText",
+  name: "extendedPortableText",
   type: "array",
   of: [
     {

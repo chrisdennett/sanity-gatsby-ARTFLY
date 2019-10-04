@@ -39,7 +39,7 @@ export default {
     {
       name: "bio",
       title: "Bio",
-      type: "bioPortableText"
+      type: "extendedPortableText"
     },
     {
       name: "image",

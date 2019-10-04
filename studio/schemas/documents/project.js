@@ -1,5 +1,5 @@
 import MdEventNote from "react-icons/lib/md/event-note";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 //MdEventNote
 
 export default {
@@ -25,7 +25,7 @@ export default {
     {
       name: "body",
       title: "Body",
-      type: "projectPortableText"
+      type: "extendedPortableText"
     },
     {
       name: "excerpt",
