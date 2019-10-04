@@ -1,21 +1,15 @@
-import { format, distanceInWords, differenceInDays } from "date-fns";
+import { format } from "date-fns";
 import React from "react";
-// import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 import Container from "./container";
 
 import styles from "./project.module.css";
+import ProjectTags from "./project-tags";
 
 function Project(props) {
   const { _rawBody, title, mainImage, publishedAt, tags } = props;
-
-  const people = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("person"));
-  const events = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("event"));
-  const organisations = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("organisation"));
-  const sponsors = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("sponsor"));
-  const catetories = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("category"));
 
   return (
     <article className={styles.root}>
@@ -47,30 +41,7 @@ function Project(props) {
               </div>
             )}
 
-            {people.length > 0 && <h3>People</h3>}
-            {people.map(tag => (
-              <div key={tag.name}>{tag.name}</div>
-            ))}
-
-            {events.length > 0 && <h3>Events</h3>}
-            {events.map(tag => (
-              <div key={tag.name}>{tag.name}</div>
-            ))}
-
-            {organisations.length > 0 && <h3>Organisations</h3>}
-            {organisations.map(tag => (
-              <div key={tag.name}>{tag.name}</div>
-            ))}
-
-            {sponsors.length > 0 && <h3>Sponsors</h3>}
-            {sponsors.map(tag => (
-              <div key={tag.name}>{tag.name}</div>
-            ))}
-
-            {catetories.length > 0 && <h3>Categories</h3>}
-            {catetories.map(tag => (
-              <div key={tag.name}>{tag.name}</div>
-            ))}
+            <ProjectTags tags={tags} />
           </aside>
         </div>
       </Container>
