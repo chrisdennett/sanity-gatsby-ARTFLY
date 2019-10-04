@@ -11,7 +11,6 @@ import styles from "./project.module.css";
 function Project(props) {
   const { _rawBody, title, mainImage, publishedAt, tags } = props;
 
-  console.log("tags: ", tags);
   const people = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("person"));
   const events = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("event"));
   const organisations = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("organisation"));

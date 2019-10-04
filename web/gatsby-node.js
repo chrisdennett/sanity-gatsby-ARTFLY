@@ -23,9 +23,30 @@ async function createProjectPages(graphql, actions, reporter) {
     }
   `);
 
+  const result2 = await graphql(`
+    {
+      allSanityTag(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
   if (result.errors) throw result.errors;
+  if (result2.errors) throw result2.errors;
+
+  console.log("result2: ", result2);
 
   const projectEdges = (result.data.allSanityProject || {}).edges || [];
+  const tagEdges = (result2.data.allSanityTag || {}).edges || [];
+
+  console.log("tagEdges: ", tagEdges);
 
   // .filter(edge => !isFuture(edge.node.publishedAt))
   projectEdges.forEach(edge => {
@@ -38,6 +59,20 @@ async function createProjectPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve("./src/templates/project.js"),
+      context: { id }
+    });
+  });
+
+  tagEdges.forEach(edge => {
+    const id = edge.node.id;
+    const slug = edge.node.slug.current;
+    const path = `/${slug}/`;
+
+    reporter.info(`Creating tag page: ${path}`);
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/tag.js"),
       context: { id }
     });
   });
