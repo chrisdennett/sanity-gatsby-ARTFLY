@@ -17,7 +17,8 @@ export default {
           { title: "Person", value: "person" },
           { title: "Organisation", value: "organisation" },
           { title: "Event", value: "event" },
-          { title: "Content", value: "content" }
+          { title: "Sponsor", value: "sponsor" },
+          { title: "Category", value: "category" }
         ]
       }
     },

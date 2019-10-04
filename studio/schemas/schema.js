@@ -12,7 +12,6 @@ import siteSettings from "./documents/siteSettings";
 // Object types
 import figure from "./objects/figure";
 import youtube from "./objects/youtube";
-import projectMember from "./objects/projectMember";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
 
@@ -27,12 +26,10 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     figure,
     youtube,
-    projectMember,
     extendedPortableText,
     simplePortableText,
     // The following are document types which will appear
     // in the studio.
-    // category,
     person,
     project,
     siteSettings

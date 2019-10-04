@@ -6,11 +6,42 @@ import Project from "../components/project";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
+const ProjectTemplate = props => {
+  const { data, errors } = props;
+  const project = data && data.project;
+  return (
+    <Layout>
+      {errors && <SEO title="GraphQL Error" />}
+      {project && <SEO title={project.title || "Untitled"} />}
+
+      {errors && (
+        <Container>
+          <GraphQLErrorList errors={errors} />
+        </Container>
+      )}
+      {project && <Project {...project} />}
+    </Layout>
+  );
+};
+export default ProjectTemplate;
+
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     project: sanityProject(id: { eq: $id }) {
       id
       publishedAt
+      title
+      slug {
+        current
+      }
+      tags {
+        name
+        tagTypes
+        slug {
+          current
+        }
+      }
+      _rawBody(resolveReferences: { maxDepth: 5 })
       mainImage {
         crop {
           _key
@@ -33,31 +64,6 @@ export const query = graphql`
         }
         alt
       }
-      title
-      slug {
-        current
-      }
-      _rawBody(resolveReferences: { maxDepth: 5 })
     }
   }
 `;
-
-const ProjectTemplate = props => {
-  const { data, errors } = props;
-  const project = data && data.project;
-  return (
-    <Layout>
-      {errors && <SEO title="GraphQL Error" />}
-      {project && <SEO title={project.title || "Untitled"} />}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-      {project && <Project {...project} />}
-    </Layout>
-  );
-};
-
-export default ProjectTemplate;

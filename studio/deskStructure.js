@@ -12,7 +12,7 @@ export default () =>
         .schemaType("project")
         .child(S.documentTypeList("project").title("Projects")),
       S.listItem()
-        .title("Tags")
+        .title("Tags (people, events etc)")
         .schemaType("tag")
         .child(S.documentTypeList("tag").title("Tags")),
       S.listItem()
