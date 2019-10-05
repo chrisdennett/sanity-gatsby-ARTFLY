@@ -1,20 +1,21 @@
-import { format } from "date-fns";
 import React from "react";
+import styled from "styled-components";
+// helpers
+import { format } from "date-fns";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
+// comps
 import BlockContent from "./block-content";
 import Container from "./container";
-
-import styles from "./project.module.css";
 import ProjectTags from "./project-tags";
 
-function Project(props) {
+const Project = props => {
   const { _rawBody, title, mainImage, publishedAt, tags } = props;
 
   return (
-    <article className={styles.root}>
+    <article>
       {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
+        <MainImageHolderStyled>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -23,30 +24,56 @@ function Project(props) {
               .url()}
             alt={mainImage.alt}
           />
-        </div>
+        </MainImageHolderStyled>
       )}
       <Container>
-        <div className={styles.grid}>
-          {/* MAIN CONTENT */}
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
-          </div>
+        {/* MAIN CONTENT */}
+        <MainContentStyled>
+          <h1>{title}</h1>
+          {_rawBody && <BlockContent blocks={_rawBody || []} />}
+        </MainContentStyled>
 
-          {/* SIDE PANEL */}
-          <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {format(new Date(publishedAt), "MMMM Do YYYY")}
-              </div>
-            )}
-
-            <ProjectTags tags={tags} />
-          </aside>
-        </div>
+        {/* SIDE PANEL */}
+        <SidePanelStyled>
+          {publishedAt && (
+            <ProjectDateStyled>{format(new Date(publishedAt), "MMMM Do YYYY")}</ProjectDateStyled>
+          )}
+          <ProjectTags tags={tags} />
+        </SidePanelStyled>
       </Container>
     </article>
   );
-}
+};
 
 export default Project;
+
+//
+// STYLES
+//
+export const MainContentStyled = styled.div``;
+
+const SidePanelStyled = styled.aside`
+  margin-top: 25px;
+`;
+
+const ProjectDateStyled = styled.div`
+  font-size: 12px;
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+`;
+
+export const MainImageHolderStyled = styled.div`
+  position: relative;
+  background: #eee;
+  padding-bottom: calc(9 / 16 * 100%);
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    object-fit: cover;
+  }
+`;

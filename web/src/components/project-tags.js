@@ -1,18 +1,6 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "gatsby";
-
-const TagSection = ({ sectionName, tagArr }) => {
-  return (
-    <div>
-      {tagArr.length > 0 && <h3>{sectionName}</h3>}
-      {tagArr.map(tag => (
-        <Link key={tag.name} to={`/${tag.slug.current}`}>
-          {tag.name}
-        </Link>
-      ))}
-    </div>
-  );
-};
 
 const ProjectTags = ({ tags }) => {
   const people = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("person"));
@@ -22,16 +10,46 @@ const ProjectTags = ({ tags }) => {
   const categories = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("category"));
 
   return (
-    <div>
-      <h1>ProjectTags</h1>
-
+    <>
       <TagSection sectionName={"People"} tagArr={people} />
       <TagSection sectionName={"Organisations"} tagArr={organisations} />
       <TagSection sectionName={"Events"} tagArr={events} />
       <TagSection sectionName={"Sponsors"} tagArr={sponsors} />
       <TagSection sectionName={"categories"} tagArr={categories} />
-    </div>
+    </>
   );
 };
 
 export default ProjectTags;
+
+// ASSETS
+const TagSection = ({ sectionName, tagArr }) => {
+  return (
+    <TagSectionStlyled>
+      {tagArr.length > 0 && <h3>{sectionName}</h3>}
+      {tagArr.map(tag => (
+        <Link key={tag.name} to={`/${tag.slug.current}`}>
+          {tag.name}
+        </Link>
+      ))}
+    </TagSectionStlyled>
+  );
+};
+
+const TagSectionStlyled = styled.div`
+  margin-bottom: 25px;
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #c73262;
+  }
+  a:hover {
+    color: black;
+  }
+`;

@@ -1,9 +1,8 @@
 import React from "react";
 import Img from "gatsby-image";
+import styled from "styled-components";
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
-
-import styles from "./figure.module.css";
 
 export default ({ node }) => {
   if (!node.asset) {
@@ -26,9 +25,19 @@ export default ({ node }) => {
   // there's probably a way to not get the full image data
 
   return (
-    <figure className={styles.root}>
+    <FigureStyled>
       <Img fluid={fluidProps} alt={node.alt} />
       {node.caption && <figcaption>{node.caption}</figcaption>}
-    </figure>
+    </FigureStyled>
   );
 };
+
+const FigureStyled = styled.figure`
+  margin: 2rem 0;
+
+  figcaption {
+    font-size: 14px;
+    line-height: 1rem;
+    margin: 0.5rem 0 0;
+  }
+`;
