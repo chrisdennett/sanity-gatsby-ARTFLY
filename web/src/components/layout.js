@@ -1,19 +1,29 @@
 import React from "react";
 import Header from "./header";
-
-import "../styles/layout.css";
-import styles from "./layout.module.css";
+import styled from "styled-components";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className={styles.content}>{children}</div>
-    <footer className={styles.footer}>
-      <div className={styles.footerWrapper}>
-        <div className={styles.siteInfo}>© {new Date().getFullYear()} ArtFly</div>
-      </div>
-    </footer>
+    <MainStyled>{children}</MainStyled>
+    <FooterStyled>
+      <div>© {new Date().getFullYear()} ArtFly</div>
+    </FooterStyled>
   </>
 );
 
 export default Layout;
+
+const MainStyled = styled.div`
+  background: whitesmoke;
+  min-height: calc(100% - 73px - 120px);
+
+  @media (min-width: 450px) {
+    min-height: calc(100% - 88px - 150px);
+  }
+`;
+
+const FooterStyled = styled.footer`
+  padding: 2rem;
+  text-align: center;
+`;
