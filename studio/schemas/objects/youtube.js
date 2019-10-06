@@ -1,6 +1,7 @@
 import React from "react";
 import getYouTubeID from "get-youtube-id";
 import YouTube from "react-youtube";
+import Videocam from "react-icons/lib/md/videocam";
 
 const YouTubePreview = ({ value }) => {
   const id = getYouTubeID(value.url);
@@ -16,7 +17,7 @@ const YouTubePreview = ({ value }) => {
 export default {
   name: "youtube",
   type: "object",
-  title: "YouTube Embed",
+  icon: Videocam,
   fields: [
     {
       name: "url",

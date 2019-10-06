@@ -41,12 +41,8 @@ async function createProjectPages(graphql, actions, reporter) {
   if (result.errors) throw result.errors;
   if (result2.errors) throw result2.errors;
 
-  console.log("result2: ", result2);
-
   const projectEdges = (result.data.allSanityProject || {}).edges || [];
   const tagEdges = (result2.data.allSanityTag || {}).edges || [];
-
-  console.log("tagEdges: ", tagEdges);
 
   // .filter(edge => !isFuture(edge.node.publishedAt))
   projectEdges.forEach(edge => {

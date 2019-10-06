@@ -1,7 +1,9 @@
+import AddAPhoto from "react-icons/lib/md/add-a-photo";
+
 export default {
   name: "figure",
-  title: "Image",
   type: "image",
+  icon: AddAPhoto,
   options: {
     hotspot: true
   },
