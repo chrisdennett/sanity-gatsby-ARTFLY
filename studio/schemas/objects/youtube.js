@@ -17,6 +17,7 @@ const YouTubePreview = ({ value }) => {
 export default {
   name: "youtube",
   type: "object",
+  title: "Vid",
   icon: Videocam,
   fields: [
     {
