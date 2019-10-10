@@ -71,7 +71,6 @@ export const MainWrapperStyled = styled.div`
   }
 `;
 export const MainContentStyled = styled.div`
-  /* background: yellow; */
   max-width: 850px;
   padding: 0 2rem;
   flex: 1;
@@ -83,17 +82,15 @@ export const MainContentStyled = styled.div`
 `;
 
 const SidePanelStyled = styled.aside`
-  background: white;
-  min-width: 170px;
-  padding: 15px;
-  border-radius: 10px;
-  border: rgba(0, 0, 0, 0.08) 1px solid;
-  margin-right: 1rem;
+  padding: 0 10px 0 20px;
+  margin-right: 2rem;
+  border-bottom-left-radius: 3px;
+  border-left: rgba(0, 0, 0, 0.1) 4px double;
   align-self: flex-start;
 `;
 
 const ProjectDateStyled = styled.div`
-  font-size: 12px;
-  margin-bottom: 1rem;
-  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  margin-bottom: 2rem;
+  font-weight: bold;
 `;

@@ -39,7 +39,9 @@ body {
   font-family: "Open Sans", sans-serif;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background: whitesmoke;
+
+  background-color: #fdfdfd;
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
 }
 
 img {

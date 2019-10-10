@@ -41,8 +41,10 @@ const TagSectionStlyled = styled.div`
   h3 {
     margin: 0;
     padding: 0;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /* color: rgba(0, 0, 0, 0.5); */
   }
   a {
     text-decoration: none;

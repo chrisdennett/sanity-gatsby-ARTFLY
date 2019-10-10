@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./header";
+import Header from "./header/header";
 import styled from "styled-components";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
@@ -15,7 +15,6 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
 export default Layout;
 
 const MainStyled = styled.div`
-  background: whitesmoke;
   min-height: calc(100% - 73px - 120px);
 
   @media (min-width: 450px) {
