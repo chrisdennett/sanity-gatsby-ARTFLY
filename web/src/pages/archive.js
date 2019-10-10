@@ -1,6 +1,6 @@
 import React from "react";
+import styled from "styled-components";
 import { graphql } from "gatsby";
-import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
@@ -48,12 +48,16 @@ const ArchivePage = props => {
   return (
     <Layout>
       <SEO title="Archive" />
-      <Container>
+      <Wrapper>
         <h1>Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
-      </Container>
+      </Wrapper>
     </Layout>
   );
 };
 
 export default ArchivePage;
+
+const Wrapper = styled.div`
+  padding: 1rem 2rem;
+`;

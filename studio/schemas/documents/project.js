@@ -9,6 +9,21 @@ export default {
   icon: MdEventNote,
   fields: [
     {
+      title: "TYPE",
+      name: "projectTypes",
+      type: "string",
+      options: {
+        layout: "radio",
+        direction: "horizontal",
+        list: [
+          { title: "DRAFT", value: "draft" },
+          { title: "PROJECT", value: "project" },
+          { title: "IDEA", value: "idea" },
+          { title: "POST", value: "post" }
+        ]
+      }
+    },
+    {
       name: "title",
       title: "Title",
       type: "string"

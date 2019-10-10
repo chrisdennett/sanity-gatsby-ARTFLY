@@ -1,11 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
-import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
@@ -87,7 +87,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
+      <Wrapper>
         <h1 hidden>Welcome to {site.title}</h1>
         {projectNodes && (
           <ProjectPreviewGrid
@@ -96,9 +96,13 @@ const IndexPage = props => {
             browseMoreHref="/archive/"
           />
         )}
-      </Container>
+      </Wrapper>
     </Layout>
   );
 };
 
 export default IndexPage;
+
+const Wrapper = styled.div`
+  padding: 1rem 2rem;
+`;

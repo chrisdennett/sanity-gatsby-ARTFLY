@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Tag from "../components/tag";
 import SEO from "../components/seo";
@@ -15,9 +14,9 @@ const TagTemplate = props => {
       {tag && <SEO title={tag.name || "Untitled"} />}
 
       {errors && (
-        <Container>
+        <div>
           <GraphQLErrorList errors={errors} />
-        </Container>
+        </div>
       )}
       {tag && <Tag {...tag} />}
     </Layout>

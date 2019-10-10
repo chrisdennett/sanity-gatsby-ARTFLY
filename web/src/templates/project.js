@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Project from "../components/project";
 import SEO from "../components/seo";
@@ -15,9 +14,9 @@ const ProjectTemplate = props => {
       {project && <SEO title={project.title || "Untitled"} />}
 
       {errors && (
-        <Container>
+        <div>
           <GraphQLErrorList errors={errors} />
-        </Container>
+        </div>
       )}
       {project && <Project {...project} />}
     </Layout>
