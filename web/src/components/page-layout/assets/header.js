@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Icon from "./icon";
+import Icon from "../../icon";
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <HeaderStyled>
