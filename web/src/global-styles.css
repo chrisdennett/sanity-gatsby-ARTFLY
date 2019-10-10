@@ -1,5 +1,6 @@
-/* https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
+@import url("https://fonts.googleapis.com/css?family=Lora:700|Open+Sans&display=swap");
 
+/* https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 /* Box sizing rules */
 *,
 *::before,
@@ -35,6 +36,7 @@ dd {
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
