@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
+//https://github.com/sanity-io/gatsby-source-sanity#fluid
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 
@@ -11,7 +12,7 @@ export default ({ node }) => {
   // if (!node.asset._ref) return null;
   // const fluidProps = getFluidGatsbyImage(node.asset._ref, { maxWidth: 675 }, clientConfig.sanity);
 
-  const fluidProps = getFluidGatsbyImage(node.asset, { maxWidth: 675 }, clientConfig.sanity);
+  const fluidProps = getFluidGatsbyImage(node.asset, { maxWidth: 375 }, clientConfig.sanity);
 
   // const { assetId, extension, metadata } = node.asset;
   // const { height, width } = metadata.dimensions;
@@ -34,10 +35,15 @@ export default ({ node }) => {
 
 const FigureStyled = styled.figure`
   margin: 2rem 0;
+  max-width: 375px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 
   figcaption {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1rem;
-    margin: 0.5rem 0 0;
+    padding: 10px;
   }
 `;

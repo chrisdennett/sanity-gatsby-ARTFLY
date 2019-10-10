@@ -14,8 +14,8 @@ const ProjectPreview = props => {
         {props.mainImage && props.mainImage.asset && (
           <img
             src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
+              .width(500)
+              .height(Math.floor((9 / 16) * 500))
               .url()}
             alt={props.mainImage.alt}
           />
@@ -37,6 +37,16 @@ const ProjectCardStyled = styled(Link)`
   display: block;
   color: inherit;
   text-decoration: none;
+  max-width: 400px;
+
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    padding-bottom: 5px;
+  }
 `;
 
 const ThumbImgHolderStyled = styled.div`

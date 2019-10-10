@@ -72,14 +72,24 @@ export const MainWrapperStyled = styled.div`
 `;
 export const MainContentStyled = styled.div`
   /* background: yellow; */
-  max-width: 960px;
+  max-width: 850px;
   padding: 0 2rem;
   flex: 1;
+  align-items: flex-start;
+
+  @media (max-width: 700px) {
+    padding: 0;
+  }
 `;
 
 const SidePanelStyled = styled.aside`
-  /* background: green; */
-  min-width: 150px;
+  background: white;
+  min-width: 170px;
+  padding: 15px;
+  border-radius: 10px;
+  border: rgba(0, 0, 0, 0.08) 1px solid;
+  margin-right: 1rem;
+  align-self: flex-start;
 `;
 
 const ProjectDateStyled = styled.div`

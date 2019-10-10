@@ -10,11 +10,26 @@ export default ({ node }) => {
 
   const id = getYouTubeId(node.url);
   return (
-    <IFrameWrapperStyled>
-      <YouTube videoId={id} />;
-    </IFrameWrapperStyled>
+    <Outer>
+      <Wrapper>
+        <IFrameWrapperStyled>
+          <YouTube videoId={id} />;
+        </IFrameWrapperStyled>
+      </Wrapper>
+    </Outer>
   );
 };
+
+const Outer = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+`;
+
+const Wrapper = styled.div`
+  background: white;
+  padding: 10px;
+  margin-top: 20px;
+`;
 
 const IFrameWrapperStyled = styled.div`
   position: relative;
