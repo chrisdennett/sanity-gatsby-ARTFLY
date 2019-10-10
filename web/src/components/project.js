@@ -6,7 +6,7 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 // comps
 import BlockContent from "./block-content";
-import Container from "../containers/page-layout/page-container";
+import Container from "./container";
 import ProjectTags from "./project-tags";
 
 const Project = props => {

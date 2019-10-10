@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 // helpers
-import { buildImageObj } from "../../lib/helpers";
-import { imageUrlFor } from "../../lib/image-url";
+import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
 // comps
 import BlockText from "./block-text";
 
-const ProjectCard = props => {
+const ProjectPreview = props => {
   return (
     <ProjectCardStyled to={`/project/${props.slug.current}`}>
       <ThumbImgHolderStyled>
@@ -31,7 +31,7 @@ const ProjectCard = props => {
   );
 };
 
-export default ProjectCard;
+export default ProjectPreview;
 
 const ProjectCardStyled = styled(Link)`
   display: block;

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./assets/header";
+import Header from "./header";
 import styled from "styled-components";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (

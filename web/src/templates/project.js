@@ -1,41 +1,48 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Container from "../components/container";
-import GraphQLErrorList from "../../../components/graphql-error-list";
-import Tag from "./tag";
+import GraphQLErrorList from "../components/graphql-error-list";
+import Project from "../components/project";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
-const TagTemplate = props => {
+const ProjectTemplate = props => {
   const { data, errors } = props;
-  const tag = data && data.tag;
+  const project = data && data.project;
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
-      {tag && <SEO title={tag.name || "Untitled"} />}
+      {project && <SEO title={project.title || "Untitled"} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {tag && <Tag {...tag} />}
+      {project && <Project {...project} />}
     </Layout>
   );
 };
-export default TagTemplate;
+export default ProjectTemplate;
 
 export const query = graphql`
-  query TagTemplateQuery($id: String!) {
-    tag: sanityTag(id: { eq: $id }) {
+  query ProjectTemplateQuery($id: String!) {
+    project: sanityProject(id: { eq: $id }) {
       id
-      name
+      publishedAt
+      title
       slug {
         current
       }
-      tagTypes
-      _rawBio(resolveReferences: { maxDepth: 5 })
-      image {
+      tags {
+        name
+        tagTypes
+        slug {
+          current
+        }
+      }
+      _rawBody(resolveReferences: { maxDepth: 5 })
+      mainImage {
         crop {
           _key
           _type

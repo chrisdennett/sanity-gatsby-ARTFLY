@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const PageContainer = ({ children }) => {
+const Container = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
 
-export default PageContainer;
+export default Container;
 
 const StyledContainer = styled.div`
   box-sizing: border-box;

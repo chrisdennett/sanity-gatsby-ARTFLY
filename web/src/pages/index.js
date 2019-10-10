@@ -8,9 +8,8 @@ import {
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
-import SEO from "../containers/page-layout/assets/seo";
+import SEO from "../components/seo";
 import Layout from "../containers/layout";
-// styles - reset only - everything else is done with styled components
 import "../styles.reset.css";
 
 export const query = graphql`

@@ -3,8 +3,8 @@ import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
-import Container from "../containers/page-layout/page-container";
-import { MainImageHolderStyled, MainContentStyled } from "../project-page/project";
+import Container from "./container";
+import { MainImageHolderStyled, MainContentStyled } from "./project";
 
 function Tag(props) {
   const { _rawBio, name, image } = props;
