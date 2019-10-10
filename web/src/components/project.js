@@ -65,15 +65,21 @@ export const MainWrapperStyled = styled.div`
   /* background: blue; */
   display: flex;
   justify-content: center;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 export const MainContentStyled = styled.div`
   /* background: yellow; */
   max-width: 960px;
+  padding: 0 2rem;
   flex: 1;
 `;
 
 const SidePanelStyled = styled.aside`
   /* background: green; */
+  min-width: 150px;
 `;
 
 const ProjectDateStyled = styled.div`
