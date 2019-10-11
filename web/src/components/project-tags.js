@@ -24,21 +24,24 @@ export default ProjectTags;
 
 // ASSETS
 const TagSection = ({ sectionName, tagArr }) => {
+  if (tagArr.length === 0) return null;
+
   return (
-    <TagSectionStlyled>
+    <TAG_SECTION>
       {tagArr.length > 0 && <h3>{sectionName}</h3>}
       {tagArr.map(tag => (
         <Link key={tag.name} to={`/${tag.slug.current}`}>
           {tag.name}
         </Link>
       ))}
-    </TagSectionStlyled>
+    </TAG_SECTION>
   );
 };
 
-const TagSectionStlyled = styled.div`
+const TAG_SECTION = styled.div`
   margin-bottom: 25px;
   h3 {
+    text-align: center;
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -47,9 +50,11 @@ const TagSectionStlyled = styled.div`
     /* color: rgba(0, 0, 0, 0.5); */
   }
   a {
+    text-align: center;
     text-decoration: none;
     font-size: 14px;
     color: #c73262;
+    display: block;
   }
   a:hover {
     color: black;

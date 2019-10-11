@@ -9,22 +9,30 @@ export default ({ node }) => {
 
   return (
     <Outer>
-      {node.pics.map(figure => (
-        <FigureHolder key={figure.asset._id}>
-          <Figure node={figure} />
-        </FigureHolder>
-      ))}
+      <Wrapper>
+        {node.pics.map(figure => (
+          <FigureHolder key={figure.asset._id}>
+            <Figure node={figure} />
+          </FigureHolder>
+        ))}
+      </Wrapper>
     </Outer>
   );
 };
 
 const Outer = styled.div`
+  /* position: relative; */
+`;
+
+const Wrapper = styled.div`
   padding: 10px;
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FigureHolder = styled.div`
-  min-width: 375px;
   margin: 5px;
 `;

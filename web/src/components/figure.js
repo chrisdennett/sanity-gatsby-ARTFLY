@@ -9,24 +9,19 @@ export default ({ node }) => {
   if (!node.asset) {
     return null;
   }
-  // if (!node.asset._ref) return null;
-  // const fluidProps = getFluidGatsbyImage(node.asset._ref, { maxWidth: 675 }, clientConfig.sanity);
 
-  const fluidProps = getFluidGatsbyImage(node.asset, { maxWidth: 375 }, clientConfig.sanity);
+  const { height, width } = node.asset.metadata.dimensions;
+  const isPortrait = height > width;
+  const maxImgWidth = isPortrait ? 300 : 500;
 
-  // const { assetId, extension, metadata } = node.asset;
-  // const { height, width } = metadata.dimensions;
-  // const ref = `image-${assetId}-${width}x${height}-${extension}`;
-
-  // NOTE: Reason this needed to be adapted
-  // In src/templates/project.js
-  // in the graphql _rawBody bit I've added:
-  // _rawBody(resolveReferences: { maxDepth: 5 })
-  // to get link slugs, but this gives me the full ref for the image.
-  // there's probably a way to not get the full image data
+  const fluidProps = getFluidGatsbyImage(
+    node.asset,
+    { maxWidth: maxImgWidth },
+    clientConfig.sanity
+  );
 
   return (
-    <FigureStyled>
+    <FigureStyled maxImgWidth={maxImgWidth}>
       <Img fluid={fluidProps} alt={node.alt} />
       {node.caption && <figcaption>{node.caption}</figcaption>}
     </FigureStyled>
@@ -35,15 +30,15 @@ export default ({ node }) => {
 
 const FigureStyled = styled.figure`
   margin: 2rem 0;
-  max-width: 375px;
+  max-width: ${props => props.maxImgWidth}px;
   background: white;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 
   figcaption {
-    font-size: 18px;
-    line-height: 1rem;
+    /* font-size: 18px; */
+    /* line-height: 1.5rem; */
     padding: 10px;
   }
 `;

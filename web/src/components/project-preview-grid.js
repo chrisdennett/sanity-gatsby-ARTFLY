@@ -10,9 +10,9 @@ const ProjectPreviewGrid = ({ title, nodes }) => {
       <GridUlStyled>
         {nodes &&
           nodes.map(node => (
-            <div key={node.id}>
+            <CARD_HOLDER key={node.id}>
               <ProjectPreview {...node} />
-            </div>
+            </CARD_HOLDER>
           ))}
       </GridUlStyled>
     </StyledGrid>
@@ -23,6 +23,10 @@ export default ProjectPreviewGrid;
 
 const StyledGrid = styled.div`
   margin: 2em 0 4em;
+`;
+
+const CARD_HOLDER = styled.div`
+  margin: 0 10px;
 `;
 
 const HeaderStyled = styled.h2`

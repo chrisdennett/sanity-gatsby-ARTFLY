@@ -30,6 +30,7 @@ export const query = graphql`
       id
       publishedAt
       title
+      _rawExcerpt
       slug {
         current
       }
