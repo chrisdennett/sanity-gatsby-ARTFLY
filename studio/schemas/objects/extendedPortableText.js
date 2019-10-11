@@ -69,8 +69,11 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: "figure"
+      type: "gallery"
     },
+    // {
+    //   type: "figure"
+    // },
     {
       type: "youtube"
     }

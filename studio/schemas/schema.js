@@ -11,6 +11,7 @@ import siteSettings from "./documents/siteSettings";
 
 // Object types
 import figure from "./objects/figure";
+import gallery from "./objects/gallery";
 import youtube from "./objects/youtube";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
@@ -24,6 +25,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
+    gallery,
     figure,
     youtube,
     extendedPortableText,

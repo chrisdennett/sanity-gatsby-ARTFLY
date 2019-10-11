@@ -1,11 +1,13 @@
 import React from "react";
-import Figure from "./figure";
+import Gallery from "./gallery";
+// import Figure from "./figure";
 import YouTube from "./youtube";
 import InternalLink from "./internal-link";
 
 const serializers = {
   types: {
-    figure: Figure,
+    gallery: Gallery,
+    // figure: Figure,
     youtube: YouTube
     // internalLink: InternalLink
   },

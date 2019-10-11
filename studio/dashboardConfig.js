@@ -9,7 +9,7 @@ export default {
             name: "netlify",
             options: {
               description:
-                "NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.",
+                "NOTE: You need to recreate the live site by pressing DEPLOY for new content/updates.",
               sites: [
                 {
                   buildHookId: "5d95e7388a1c180fe5ef677b",
@@ -19,7 +19,7 @@ export default {
                 },
                 {
                   buildHookId: "5d95e73828b476bbae90dd96",
-                  title: "CMS - i.e. this bit!",
+                  title: "CMS - i.e. the site you're on now",
                   name: "sanity-gatsby-ARTFLY-studio",
                   apiId: "400e40b7-5dc3-4bf5-8833-09de5b684156"
                 }

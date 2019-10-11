@@ -21,7 +21,6 @@ export default {
       name: "alt",
       type: "string",
       title: "Description for screen readers",
-      validation: Rule => Rule.error("You have to fill out the alternative text.").required(),
       options: {
         isHighlighted: true
       }
