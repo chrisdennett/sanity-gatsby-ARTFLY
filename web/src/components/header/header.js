@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import HoverLogo from "./HoverLogo";
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <HeaderStyled>
     <Link to="/">
       <span>ArtFly</span>

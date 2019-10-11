@@ -13,13 +13,13 @@ export default {
               sites: [
                 {
                   buildHookId: "5d95e7388a1c180fe5ef677b",
-                  title: "Portfolio Website",
+                  title: "Artfly Website - Deploy after content changes",
                   name: "sanity-gatsby-ARTFLY",
                   apiId: "e5d7d1c4-9778-4a15-b8bd-ca663e3693bd"
                 },
                 {
                   buildHookId: "5d95e73828b476bbae90dd96",
-                  title: "Sanity Studio",
+                  title: "CMS - i.e. this bit!",
                   name: "sanity-gatsby-ARTFLY-studio",
                   apiId: "400e40b7-5dc3-4bf5-8833-09de5b684156"
                 }
