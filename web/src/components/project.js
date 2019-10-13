@@ -14,15 +14,14 @@ const Project = props => {
   return (
     <PageStyled>
       <MainWrapperStyled>
-        {/* TAG PANEL */}
         <INTRO>
           <h1>{title}</h1>
-
-          <EXCERPT>{_rawExcerpt && <BlockContent blocks={_rawExcerpt || []} />}</EXCERPT>
 
           {publishedAt && (
             <PROJECT_DATE>{format(new Date(publishedAt), "MMMM Do YYYY")}</PROJECT_DATE>
           )}
+
+          <EXCERPT>{_rawExcerpt && <BlockContent blocks={_rawExcerpt || []} />}</EXCERPT>
 
           <TAGS_HOLDER>
             <ProjectTags tags={tags} />
@@ -81,7 +80,7 @@ export const MainWrapperStyled = styled.div`
   }
 `;
 
-const INTRO = styled.aside`
+export const INTRO = styled.aside`
   padding: 0 20px;
   margin-bottom: 30px;
   display: flex;
@@ -90,15 +89,17 @@ const INTRO = styled.aside`
   align-items: center;
 
   h1 {
-    font-size: 64px;
+    font-size: 3em;
     text-align: center;
     line-height: 1em;
   }
 `;
 
 export const EXCERPT = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   padding-top: 30px;
+  margin-bottom: 50px;
+  font-size: 1.5em;
 `;
 
 export const TAGS_HOLDER = styled.div`
@@ -116,7 +117,7 @@ export const TAGS_HOLDER = styled.div`
 
 const PROJECT_DATE = styled.div`
   font-size: 16px;
-  padding: 20px;
+  padding: 10px;
   font-weight: bold;
 `;
 
@@ -147,6 +148,10 @@ export const MainContentStyled = styled.div`
   h6 {
     padding-top: 2rem;
     padding-bottom: 0.5rem;
+  }
+
+  p {
+    padding-bottom: 25px;
   }
 
   @media (max-width: 700px) {

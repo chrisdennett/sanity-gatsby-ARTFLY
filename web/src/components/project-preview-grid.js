@@ -26,7 +26,7 @@ const StyledGrid = styled.div`
 `;
 
 const CARD_HOLDER = styled.div`
-  margin: 0 10px;
+  margin: 0 15px 40px 15px;
 `;
 
 const HeaderStyled = styled.h2`

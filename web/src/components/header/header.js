@@ -35,6 +35,7 @@ const HeaderStyled = styled.div`
     span {
       font-size: 34px;
       letter-spacing: 2px;
+      font-weight: normal;
     }
   }
 `;
