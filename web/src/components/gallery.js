@@ -10,11 +10,17 @@ export default ({ node }) => {
   return (
     <Outer>
       <Wrapper>
-        {node.pics.map(figure => (
-          <FigureHolder key={figure.asset._id}>
-            <Figure node={figure} />
-          </FigureHolder>
-        ))}
+        {node.pics.map(figure => {
+          const { height, width } = figure.asset.metadata.dimensions;
+          const isPortrait = height > width;
+          const maxImgWidth = isPortrait ? 300 : 500;
+
+          return (
+            <FigureHolder key={figure.asset._id} style={{ width: maxImgWidth }}>
+              <Figure node={figure} />
+            </FigureHolder>
+          );
+        })}
       </Wrapper>
     </Outer>
   );
@@ -35,4 +41,5 @@ const Wrapper = styled.div`
 
 const FigureHolder = styled.div`
   margin: 5px;
+  /* width: 500px; */
 `;
