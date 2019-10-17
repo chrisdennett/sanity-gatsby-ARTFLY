@@ -1,19 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import getYouTubeId from "get-youtube-id";
-import YouTube from "react-youtube";
+import ReactPlayer from "react-player";
 
 export default ({ node }) => {
   if (!node.url) {
     return null;
   }
 
-  const id = getYouTubeId(node.url);
   return (
     <Outer>
       <Wrapper>
         <IFrameWrapperStyled>
-          <YouTube videoId={id} />;
+          <ReactPlayer
+            url={node.url}
+            config={{
+              youtube: {
+                playerVars: { showinfo: 1 }
+              },
+              soundcloud: { show_artwork: false }
+            }}
+          />
         </IFrameWrapperStyled>
       </Wrapper>
     </Outer>
@@ -22,7 +28,7 @@ export default ({ node }) => {
 
 const Outer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  max-width: 900px;
+  max-width: 700px;
   margin: 20px auto;
 `;
 

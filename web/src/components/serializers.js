@@ -1,7 +1,7 @@
 import React from "react";
 import Gallery from "./gallery";
 // import Figure from "./figure";
-import YouTube from "./youtube";
+import MediaPlayer from "./mediaPlayer";
 import TwitterPost from "./twitterPost";
 import InternalLink from "./internal-link";
 
@@ -9,7 +9,7 @@ const serializers = {
   types: {
     gallery: Gallery,
     // figure: Figure,
-    youtube: YouTube,
+    mediaPlayer: MediaPlayer,
     twitter: TwitterPost
     // internalLink: InternalLink
   },

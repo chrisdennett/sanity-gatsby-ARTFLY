@@ -12,7 +12,7 @@ import siteSettings from "./documents/siteSettings";
 // Object types
 import figure from "./objects/figure";
 import gallery from "./objects/gallery";
-import youtube from "./objects/youtube";
+import mediaPlayer from "./objects/mediaPlayer";
 import twitter from "./objects/twitter";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
@@ -28,7 +28,7 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     gallery,
     figure,
-    youtube,
+    mediaPlayer,
     twitter,
     extendedPortableText,
     simplePortableText,
