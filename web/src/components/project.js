@@ -34,9 +34,7 @@ const Project = props => {
           <MainImageHolderStyled>
             <img
               src={imageUrlFor(buildImageObj(mainImage))
-                .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
-                .fit("crop")
+                .maxWidth(1200)
                 .url()}
               alt={mainImage.alt}
             />
