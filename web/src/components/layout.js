@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./header/header";
+import "../global-styles.css";
 import styled from "styled-components";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
