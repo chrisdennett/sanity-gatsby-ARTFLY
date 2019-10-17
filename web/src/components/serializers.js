@@ -2,13 +2,15 @@ import React from "react";
 import Gallery from "./gallery";
 // import Figure from "./figure";
 import YouTube from "./youtube";
+import TwitterPost from "./twitterPost";
 import InternalLink from "./internal-link";
 
 const serializers = {
   types: {
     gallery: Gallery,
     // figure: Figure,
-    youtube: YouTube
+    youtube: YouTube,
+    twitter: TwitterPost
     // internalLink: InternalLink
   },
   marks: {

@@ -13,6 +13,7 @@ import siteSettings from "./documents/siteSettings";
 import figure from "./objects/figure";
 import gallery from "./objects/gallery";
 import youtube from "./objects/youtube";
+import twitter from "./objects/twitter";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
 
@@ -28,6 +29,7 @@ export default createSchema({
     gallery,
     figure,
     youtube,
+    twitter,
     extendedPortableText,
     simplePortableText,
     // The following are document types which will appear

@@ -76,6 +76,9 @@ export default {
     // },
     {
       type: "youtube"
+    },
+    {
+      type: "twitter"
     }
   ]
 };

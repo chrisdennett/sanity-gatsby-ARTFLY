@@ -22,13 +22,15 @@ export default ({ node }) => {
 
 const Outer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  max-width: 900px;
+  margin: 20px auto;
 `;
 
 const Wrapper = styled.div`
   background: white;
   padding: 10px;
   margin-top: 20px;
+  margin: 0 auto;
 `;
 
 const IFrameWrapperStyled = styled.div`
