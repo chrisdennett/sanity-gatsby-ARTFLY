@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import styled from "styled-components";
 import React from "react";
 import ProjectPreview from "./project-preview";
@@ -25,10 +24,6 @@ const StyledGrid = styled.div`
   margin: 2em 0 4em;
 `;
 
-const CARD_HOLDER = styled.div`
-  margin: 0 15px 40px 15px;
-`;
-
 const HeaderStyled = styled.h2`
   font-size: 14px;
   line-height: 14px;
@@ -43,6 +38,11 @@ const GridUlStyled = styled.div`
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+`;
+
+const CARD_HOLDER = styled.div`
+  margin: 0 15px 40px 15px;
+  width: 400px;
 `;

@@ -21,7 +21,7 @@ export const query = graphql`
     projects: allSanityProject(
       limit: 25
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      filter: { slug: { current: { ne: null } }, projectTypes: { ne: "draft" } }
     ) {
       edges {
         node {

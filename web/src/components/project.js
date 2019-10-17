@@ -23,9 +23,11 @@ const Project = props => {
 
           <EXCERPT>{_rawExcerpt && <BlockContent blocks={_rawExcerpt || []} />}</EXCERPT>
 
-          <TAGS_HOLDER>
-            <ProjectTags tags={tags} />
-          </TAGS_HOLDER>
+          {tags && tags.length > 0 && (
+            <TAGS_HOLDER>
+              <ProjectTags tags={tags} />
+            </TAGS_HOLDER>
+          )}
         </INTRO>
 
         {mainImage && mainImage.asset && (
