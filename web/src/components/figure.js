@@ -10,6 +10,8 @@ export default ({ node }) => {
     return null;
   }
 
+  console.log("node: ", node);
+
   const { height, width } = node.asset.metadata.dimensions;
   const isPortrait = height > width;
   const maxImgWidth = isPortrait ? 300 : 500;

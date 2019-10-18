@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
+import { getFluidGatsbyImage } from "gatsby-source-sanity";
+import clientConfig from "../../client-config";
 // helpers
 import { format } from "date-fns";
 import { buildImageObj } from "../lib/helpers";
@@ -9,7 +12,15 @@ import BlockContent from "./block-content";
 import ProjectTags from "./project-tags";
 
 const Project = props => {
-  const { _rawBody, title, _rawExcerpt, mainImage, publishedAt, tags } = props;
+  const { _rawBody, title, _rawExcerpt, mainImage, publishedAt, tags, _rawMainImage } = props;
+
+  const maxImgWidth = 960;
+
+  const fluidProps = getFluidGatsbyImage(
+    _rawMainImage.asset,
+    { maxWidth: maxImgWidth },
+    clientConfig.sanity
+  );
 
   return (
     <PageStyled>
@@ -31,13 +42,18 @@ const Project = props => {
         </INTRO>
 
         {mainImage && mainImage.asset && (
-          <MainImageHolderStyled>
-            <img
+          <MainImageHolderStyled maxWidth={maxImgWidth}>
+            <Img
+              fluid={fluidProps}
+              alt={mainImage.alt}
+              style={{ maxWidth: maxImgWidth, margin: "0 auto" }}
+            />
+            {/* <img
               src={imageUrlFor(buildImageObj(mainImage))
-                .maxWidth(1200)
+                .maxWidth(960)
                 .url()}
               alt={mainImage.alt}
-            />
+            /> */}
           </MainImageHolderStyled>
         )}
 
@@ -64,6 +80,7 @@ export const MainImageHolderStyled = styled.div`
 
   img {
     margin: 0 auto;
+    max-width: ${props => props.maxImgWidth}px;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }

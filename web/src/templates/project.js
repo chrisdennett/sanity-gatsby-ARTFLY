@@ -42,6 +42,7 @@ export const query = graphql`
         }
       }
       _rawBody(resolveReferences: { maxDepth: 5 })
+      _rawMainImage(resolveReferences: { maxDepth: 5 })
       mainImage {
         crop {
           _key
