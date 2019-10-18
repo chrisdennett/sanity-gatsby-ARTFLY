@@ -36,10 +36,21 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /* justify-content: space-evenly; */
   align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  @media (max-width: 550px) {
+    padding: 0;
+    background: none;
+  }
 `;
 
 const FigureHolder = styled.div`
-  margin: 5px;
-  /* width: 500px; */
+  margin: 10px;
+
+  @media (max-width: 550px) {
+    margin: 5px 0;
+  }
 `;

@@ -29,7 +29,6 @@ export default ({ node }) => {
 };
 
 const FigureStyled = styled.figure`
-  margin: 2rem 0;
   max-width: ${props => props.maxImgWidth}px;
   background: white;
   padding: 10px;
@@ -37,8 +36,6 @@ const FigureStyled = styled.figure`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 
   figcaption {
-    /* font-size: 18px; */
-    /* line-height: 1.5rem; */
     padding: 10px;
   }
 `;

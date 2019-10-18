@@ -146,12 +146,16 @@ export const MainContentStyled = styled.div`
   h4,
   h5,
   h6 {
-    padding-top: 2rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 0;
   }
 
   p {
-    padding-bottom: 25px;
+    padding: 10px 0 10px 0;
+  }
+
+  ul {
+    padding-bottom: 10px;
   }
 
   @media (max-width: 700px) {

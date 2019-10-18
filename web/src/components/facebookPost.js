@@ -8,8 +8,6 @@ export default ({ node }) => {
   }
 
   const { url } = node;
-  //576211709245398
-  //const testPost = "https://www.facebook.com/artfly.io/posts/919064151785133"
 
   return (
     <Outer>
