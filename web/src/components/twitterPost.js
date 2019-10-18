@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+//https://www.npmjs.com/package/react-twitter-embed
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export default ({ node }) => {
@@ -13,7 +14,7 @@ export default ({ node }) => {
   return (
     <Outer>
       <Wrapper>
-        <TwitterTweetEmbed tweetId={tweetId} />
+        <TwitterTweetEmbed tweetId={tweetId} options={{ width: "100%" }} />
       </Wrapper>
     </Outer>
   );

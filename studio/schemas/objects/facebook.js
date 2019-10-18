@@ -43,7 +43,7 @@ export default {
 
 const Outer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  max-width: 700px;
+  max-width: 520px;
   margin: 20px auto;
 `;
 
