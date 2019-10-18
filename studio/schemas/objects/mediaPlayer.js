@@ -1,7 +1,7 @@
 import React from "react";
 //https://www.npmjs.com/package/react-player
 import ReactPlayer from "react-player";
-import Videocam from "react-icons/lib/md/videocam";
+import FaPlayCircle from "react-icons/lib/fa/play-circle";
 
 const MediaPlayerPreview = ({ value }) => {
   if (!value.url) {
@@ -14,8 +14,8 @@ const MediaPlayerPreview = ({ value }) => {
 export default {
   name: "mediaPlayer",
   type: "object",
-  title: "Vid",
-  icon: Videocam,
+  title: "Media Player",
+  icon: FaPlayCircle,
   fields: [
     {
       name: "url",

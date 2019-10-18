@@ -3,6 +3,7 @@ import Gallery from "./gallery";
 // import Figure from "./figure";
 import MediaPlayer from "./mediaPlayer";
 import TwitterPost from "./twitterPost";
+import FacebookPost from "./facebookPost";
 import InternalLink from "./internal-link";
 
 const serializers = {
@@ -10,7 +11,8 @@ const serializers = {
     gallery: Gallery,
     // figure: Figure,
     mediaPlayer: MediaPlayer,
-    twitter: TwitterPost
+    twitter: TwitterPost,
+    facebook: FacebookPost
     // internalLink: InternalLink
   },
   marks: {

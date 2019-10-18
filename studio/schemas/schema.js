@@ -14,6 +14,7 @@ import figure from "./objects/figure";
 import gallery from "./objects/gallery";
 import mediaPlayer from "./objects/mediaPlayer";
 import twitter from "./objects/twitter";
+import facebook from "./objects/facebook";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
 
@@ -30,6 +31,7 @@ export default createSchema({
     figure,
     mediaPlayer,
     twitter,
+    facebook,
     extendedPortableText,
     simplePortableText,
     // The following are document types which will appear

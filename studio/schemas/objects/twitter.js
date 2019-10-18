@@ -1,4 +1,5 @@
 import React from "react";
+import FaTwitterSquare from "react-icons/lib/fa/twitter-square";
 import Videocam from "react-icons/lib/md/videocam";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
@@ -17,7 +18,7 @@ export default {
   name: "twitter",
   type: "object",
   title: "Twitter",
-  icon: Videocam,
+  icon: FaTwitterSquare,
   fields: [
     {
       name: "url",

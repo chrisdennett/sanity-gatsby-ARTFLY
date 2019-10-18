@@ -79,6 +79,9 @@ export default {
     },
     {
       type: "twitter"
+    },
+    {
+      type: "facebook"
     }
   ]
 };
