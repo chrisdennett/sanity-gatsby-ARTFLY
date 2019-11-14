@@ -12,12 +12,14 @@ import BlockContent from "./block-content";
 import ProjectTags from "./project-tags";
 
 const Project = props => {
-  const { _rawBody, title, _rawExcerpt, mainImage, publishedAt, tags, _rawMainImage } = props;
+  const { _rawBody, title, _rawExcerpt, publishedAt, tags, _rawMainImage } = props;
 
   const maxImgWidth = 960;
 
+  const imgThing = imageUrlFor(buildImageObj(_rawMainImage));
+
   const fluidProps = getFluidGatsbyImage(
-    _rawMainImage.asset,
+    imgThing.options.source.asset,
     { maxWidth: maxImgWidth },
     clientConfig.sanity
   );
@@ -41,11 +43,11 @@ const Project = props => {
           )}
         </INTRO>
 
-        {mainImage && mainImage.asset && (
+        {_rawMainImage && (
           <MainImageHolderStyled maxWidth={maxImgWidth}>
             <Img
               fluid={fluidProps}
-              alt={mainImage.alt}
+              alt={_rawMainImage.alt}
               style={{ maxWidth: maxImgWidth, margin: "0 auto" }}
             />
             {/* <img

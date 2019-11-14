@@ -16,10 +16,6 @@ function Tag(props) {
   return (
     <PageStyled>
       <MainWrapperStyled>
-        <INTRO>
-          <h1>{name}</h1>
-        </INTRO>
-
         {image && image.asset && (
           <MainImageHolderStyled>
             <img
@@ -31,6 +27,10 @@ function Tag(props) {
             />
           </MainImageHolderStyled>
         )}
+
+        <INTRO>
+          <h1>{name}</h1>
+        </INTRO>
 
         <MainContentStyled>{_rawBio && <BlockContent blocks={_rawBio || []} />}</MainContentStyled>
       </MainWrapperStyled>

@@ -43,28 +43,6 @@ export const query = graphql`
       }
       _rawBody(resolveReferences: { maxDepth: 5 })
       _rawMainImage(resolveReferences: { maxDepth: 5 })
-      mainImage {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
     }
   }
 `;
