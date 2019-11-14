@@ -24,6 +24,12 @@ export default {
       }
     },
     {
+      title: "Feature",
+      name: "isFeatured",
+      name: "isFeatured",
+      type: "boolean"
+    },
+    {
       name: "title",
       title: "Title",
       type: "string"
@@ -64,6 +70,23 @@ export default {
       of: [{ type: "reference", to: { type: "tag" } }]
     }
   ],
+  initialValue: () => ({
+    isFeatured: true,
+    projectTypes: "draft",
+    publishedAt: new Date().toISOString(),
+    tags: [
+      {
+        _type: "reference",
+        _key: "211d5219640b",
+        _ref: "7bc16720-c8fa-49b0-aad0-bef768975fe3"
+      },
+      {
+        _type: "reference",
+        _key: "b4d8fda01d74",
+        _ref: "83518f91-4c98-4e01-97c2-136936105d73"
+      }
+    ]
+  }),
   preview: {
     select: {
       title: "title",
