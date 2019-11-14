@@ -1,15 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../lib/helpers";
 import GraphQLErrorList from "../components/graphql-error-list";
-import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import Home from "./home";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,10 +13,23 @@ export const query = graphql`
       description
       keywords
     }
+    tags: allSanityTag {
+      edges {
+        node {
+          name
+          _type
+          tagTypes
+        }
+      }
+    }
     projects: allSanityProject(
-      limit: 25
+      limit: 100
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, projectTypes: { ne: "draft" } }
+      filter: {
+        slug: { current: { ne: null } }
+        projectTypes: { ne: "draft" }
+        isFeatured: { eq: true }
+      }
     ) {
       edges {
         node {
@@ -70,11 +78,15 @@ const IndexPage = props => {
     );
   }
 
+  // .filter(filterOutDocsPublishedInTheFuture)
+
   const site = (data || {}).site;
   const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
+    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    : [];
+
+  const tagNodes = (data || {}).projects
+    ? mapEdgesToNodes(data.tags).filter(filterOutDocsWithoutSlugs)
     : [];
 
   if (!site) {
@@ -86,22 +98,9 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Wrapper>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/archive/"
-          />
-        )}
-      </Wrapper>
+      <Home site={site} projectNodes={projectNodes} tagNodes={tagNodes} />
     </Layout>
   );
 };
 
 export default IndexPage;
-
-const Wrapper = styled.div`
-  padding: 1rem 2rem;
-`;

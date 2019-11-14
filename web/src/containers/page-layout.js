@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./header/header";
+import Header from "../components/header/header";
 import "../global-styles.css";
 import styled from "styled-components";
 
-const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+const PageLayout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <MainStyled>{children}</MainStyled>
@@ -13,7 +13,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   </>
 );
 
-export default Layout;
+export default PageLayout;
 
 const MainStyled = styled.div`
   min-height: calc(100% - 73px - 120px);

@@ -2,10 +2,9 @@ import styled from "styled-components";
 import React from "react";
 import ProjectPreview from "./project-preview";
 
-const ProjectPreviewGrid = ({ title, nodes }) => {
+const ProjectPreviewGrid = ({ nodes }) => {
   return (
     <StyledGrid>
-      {title && <HeaderStyled>{title}</HeaderStyled>}
       <GridUlStyled>
         {nodes &&
           nodes.map(node => (
@@ -22,16 +21,6 @@ export default ProjectPreviewGrid;
 
 const StyledGrid = styled.div`
   margin: 2em 0 4em;
-`;
-
-const HeaderStyled = styled.h2`
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 2rem 0;
-  text-align: center;
 `;
 
 const GridUlStyled = styled.div`
