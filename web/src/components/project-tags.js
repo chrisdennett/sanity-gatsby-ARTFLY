@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { getTagsByType } from "../lib/helpers";
 
 const ProjectTags = ({ tags }) => {
-  const people = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("person"));
-  const events = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("event"));
-  const organisations = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("organisation"));
-  const sponsors = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("sponsor"));
-  const categories = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("category"));
+  const { people, organisations, events, sponsors, categories } = getTagsByType(tags);
 
   return (
     <>

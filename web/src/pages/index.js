@@ -19,6 +19,9 @@ export const query = graphql`
           name
           _type
           tagTypes
+          slug {
+            current
+          }
         }
       }
     }
@@ -81,11 +84,12 @@ const IndexPage = props => {
   // .filter(filterOutDocsPublishedInTheFuture)
 
   const site = (data || {}).site;
+
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : [];
 
-  const tagNodes = (data || {}).projects
+  const tagNodes = (data || {}).tags
     ? mapEdgesToNodes(data.tags).filter(filterOutDocsWithoutSlugs)
     : [];
 
