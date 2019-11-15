@@ -9,9 +9,11 @@ const Home = ({ projectNodes, tagNodes }) => {
     <Wrapper>
       {projectNodes && <ProjectPreviewGrid nodes={projectNodes} />}
 
-      <TAGS_HOLDER>
-        <ProjectTags tags={tagNodes} />
-      </TAGS_HOLDER>
+      {tagNodes && (
+        <TAGS_HOLDER>
+          <ProjectTags tags={tagNodes} />
+        </TAGS_HOLDER>
+      )}
     </Wrapper>
   );
 };
