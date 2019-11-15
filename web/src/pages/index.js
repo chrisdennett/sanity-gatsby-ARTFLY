@@ -102,7 +102,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Home site={site} projectNodes={projectNodes} tagNodes={tagNodes} />
+      <Home projectNodes={projectNodes} tagNodes={tagNodes} />
     </Layout>
   );
 };

@@ -4,10 +4,9 @@ import styled from "styled-components";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import ProjectTags from "../components/project-tags";
 
-const Home = ({ site, projectNodes, tagNodes }) => {
+const Home = ({ projectNodes, tagNodes }) => {
   return (
     <Wrapper>
-      <h1 hidden>Welcome to {site.title}</h1>
       {projectNodes && <ProjectPreviewGrid nodes={projectNodes} />}
 
       <TAGS_HOLDER>
