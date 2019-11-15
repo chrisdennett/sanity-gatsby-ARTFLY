@@ -1,38 +1,15 @@
 import React from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
-import {
-  INTRO,
-  MainImageHolderStyled,
-  MainContentStyled,
-  MainWrapperStyled,
-  PageStyled
-} from "./project";
+import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./project";
+import ImageWithPlaceHolder from "./image-with-placeholder";
 
 function Tag(props) {
   const { _rawBio, name, image } = props;
 
-  let HeaderImage = null;
-
-  if (image && image.asset) {
-    const imageObject = buildImageObj(image);
-    const imageUrlObect = imageUrlFor(imageObject)
-      .width(600)
-      .fit("max");
-    const imageUrl = imageUrlObect.url(); // + "?w=600&fit=max";
-
-    HeaderImage = (
-      <MainImageHolderStyled>
-        <img style={{ background: "#fff", padding: 20 }} src={imageUrl} alt={image.alt} />
-      </MainImageHolderStyled>
-    );
-  }
-
   return (
     <PageStyled>
       <MainWrapperStyled>
-        {HeaderImage}
+        <ImageWithPlaceHolder image={image} maxWidth={600} />
 
         <INTRO>
           <h1>{name}</h1>

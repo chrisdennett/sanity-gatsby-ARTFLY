@@ -53,6 +53,15 @@ export const query = graphql`
         }
         asset {
           _id
+          metadata {
+            lqip
+            isOpaque
+            dimensions {
+              aspectRatio
+              width
+              height
+            }
+          }
         }
         alt
       }
