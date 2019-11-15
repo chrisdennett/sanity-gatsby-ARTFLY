@@ -1,28 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage } from "gatsby-source-sanity";
-import clientConfig from "../../client-config";
 // helpers
 import { format } from "date-fns";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
 // comps
 import BlockContent from "./block-content";
 import ProjectTags from "./project-tags";
+import ImageWithPlaceHolder from "./image-with-placeholder";
 
 const Project = props => {
-  const { _rawBody, title, _rawExcerpt, publishedAt, tags, _rawMainImage } = props;
-
-  const maxImgWidth = 960;
-
-  const imgThing = imageUrlFor(buildImageObj(_rawMainImage));
-
-  const fluidProps = getFluidGatsbyImage(
-    imgThing.options.source.asset,
-    { maxWidth: maxImgWidth },
-    clientConfig.sanity
-  );
+  const { _rawBody, title, mainImage, _rawExcerpt, publishedAt, tags } = props;
 
   return (
     <PageStyled>
@@ -43,19 +29,9 @@ const Project = props => {
           )}
         </INTRO>
 
-        {_rawMainImage && (
-          <MainImageHolderStyled maxWidth={maxImgWidth}>
-            <Img
-              fluid={fluidProps}
-              alt={_rawMainImage.alt}
-              style={{ maxWidth: maxImgWidth, margin: "0 auto" }}
-            />
-            {/* <img
-              src={imageUrlFor(buildImageObj(mainImage))
-                .maxWidth(960)
-                .url()}
-              alt={mainImage.alt}
-            /> */}
+        {mainImage && (
+          <MainImageHolderStyled>
+            <ImageWithPlaceHolder image={mainImage} maxWidth={960} />
           </MainImageHolderStyled>
         )}
 
@@ -79,13 +55,6 @@ export const PageStyled = styled.article`
 
 export const MainImageHolderStyled = styled.div`
   margin-bottom: 40px;
-
-  img {
-    margin: 0 auto;
-    max-width: ${props => props.maxImgWidth}px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
 `;
 
 export const MainWrapperStyled = styled.div`

@@ -9,7 +9,7 @@ function Tag(props) {
   return (
     <PageStyled>
       <MainWrapperStyled>
-        <ImageWithPlaceHolder image={image} maxWidth={600} />
+        <ImageWithPlaceHolder image={image} maxWidth={600} style={{ marginBottom: 30 }} />
 
         <INTRO>
           <h1>{name}</h1>

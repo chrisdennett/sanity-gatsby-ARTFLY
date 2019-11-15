@@ -36,20 +36,10 @@ export const query = graphql`
       _rawBio(resolveReferences: { maxDepth: 5 })
       image {
         crop {
-          _key
-          _type
           top
           bottom
           left
           right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
         }
         asset {
           _id
@@ -57,7 +47,6 @@ export const query = graphql`
             lqip
             isOpaque
             dimensions {
-              aspectRatio
               width
               height
             }

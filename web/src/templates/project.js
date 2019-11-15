@@ -41,8 +41,30 @@ export const query = graphql`
           current
         }
       }
+      mainImage {
+        _key
+        _type
+        caption
+        alt
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+            isOpaque
+          }
+        }
+      }
       _rawBody(resolveReferences: { maxDepth: 5 })
-      _rawMainImage(resolveReferences: { maxDepth: 5 })
     }
   }
 `;

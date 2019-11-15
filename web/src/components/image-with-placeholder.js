@@ -1,29 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-const ImageWithPlaceHolder = ({ image, maxWidth }) => {
+const ImageWithPlaceHolder = ({ image, maxWidth, maxHeight, style = {} }) => {
+  const [imgOpacity, setImgOpacity] = useState(0);
+
   if (!image || !image.asset) return null;
 
   const { metadata } = image.asset;
+  let { height: _height, width: _width } = metadata.dimensions;
 
-  const _maxWidth = Math.min(maxWidth, metadata.dimensions.width);
+  if (image.crop) {
+    const { top, right, bottom, left } = image.crop;
+    const croppedWidth = _width * (left + right);
+    const croppedHeight = _height * (top + bottom);
+
+    _width -= croppedWidth;
+    _height -= croppedHeight;
+  }
+
+  const _maxWidth = Math.round(Math.min(maxWidth, _width));
 
   const imageObject = buildImageObj(image);
   const imageUrlObect = imageUrlFor(imageObject)
     .width(_maxWidth)
+    .height(maxHeight)
     .fit("max");
+
   const imageUrl = imageUrlObect.url();
-  const heightToWidthRatio = metadata.dimensions.aspectRatio;
+  let heightToWidthRatio = _width / _height;
+
+  if (maxHeight) {
+    heightToWidthRatio = _maxWidth / maxHeight;
+  }
+
   const widthToHeightRatio = 1 / heightToWidthRatio;
 
   const includePadding = !metadata.isOpaque;
 
   return (
-    <div>
+    <div style={style}>
       <div style={{ maxWidth: _maxWidth, margin: "auto" }}>
         <ImageWithPlaceholderInternal
+          imgOpacity={imgOpacity}
           widthToHeightRatio={widthToHeightRatio}
           heightToWidthRatio={heightToWidthRatio}
           includePadding={includePadding}
@@ -33,7 +53,7 @@ const ImageWithPlaceHolder = ({ image, maxWidth }) => {
             backgroundSize: "100% 100%"
           }}
         >
-          <img src={imageUrl} />
+          <img src={imageUrl} onLoad={() => setImgOpacity(1)} />
         </ImageWithPlaceholderInternal>
       </div>
     </div>
@@ -45,21 +65,19 @@ export default ImageWithPlaceHolder;
 const ImageWithPlaceholderInternal = styled.div`
   display: block;
   position: relative;
-  height: 0;
   padding-top: ${props => props.widthToHeightRatio * 100}%;
   background: white;
-  margin-bottom: 40px;
   border-radius: 10px;
 
   img {
     position: absolute;
-    background: white;
+    background: ${props => (props.includePadding ? "white" : "none")};
     border: ${props => (props.includePadding ? "10px solid white" : "none")};
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 1;
+    opacity: ${props => props.imgOpacity};
     transition: opacity 500ms ease 0s;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
