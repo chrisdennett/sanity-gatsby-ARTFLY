@@ -13,8 +13,6 @@ import {
 function Tag(props) {
   const { _rawBio, name, image } = props;
 
-  console.log("image: ", image);
-
   let HeaderImage = null;
 
   if (image && image.asset) {
