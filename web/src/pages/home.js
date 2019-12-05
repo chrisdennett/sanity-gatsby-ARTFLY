@@ -6,6 +6,8 @@ import ProjectTags from "../components/project-tags";
 import SectionHeader from "../components/section-header";
 
 const Home = ({ projectNodes, tagNodes }) => {
+  if (!projectNodes) return null;
+
   const featuredProjects = projectNodes.filter(
     proj => proj.projectTypes === "project" && proj.isFeatured === true
   );
