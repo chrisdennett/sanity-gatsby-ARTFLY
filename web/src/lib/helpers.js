@@ -1,4 +1,4 @@
-import { format, isFuture } from "date-fns";
+// import { format, isFuture } from "date-fns";
 
 export const getTagsByType = tags => {
   const people = tags.filter(tag => tag.tagTypes && tag.tagTypes.includes("person"));

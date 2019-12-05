@@ -1,12 +1,19 @@
 # sanity-gatsby-ARTFLY
 
-A portfolio using structured content and a static site builder.
+A place for all of chris and jennie's projects with two main purposes.
+
+- A showcase to help us get funding for more projects.
+- A personal scrapbook of memories.
+
+---
+
+## TECHNICAL NOTES:
 
 Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-gatsby-portfolio).
 
 ## What you have
 
-- A blazing fast portfolio with [Gatsby.js](https://gatsbyjs.org)
+- A blazing fast site with [Gatsby.js](https://gatsbyjs.org)
 - Structured content using [Sanity.io](https://www.sanity.io)
 - Global deployment on [Netlify](https://netlify.com)
 

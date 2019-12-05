@@ -63,13 +63,9 @@ export const query = graphql`
       }
     }
     projects: allSanityProject(
-      limit: 100
+      limit: 1000
       sort: { fields: [publishedAt], order: DESC }
-      filter: {
-        slug: { current: { ne: null } }
-        # projectTypes: { ne: "draft" }
-        isFeatured: { eq: true }
-      }
+      filter: { slug: { current: { ne: null } } }
     ) {
       edges {
         node {
