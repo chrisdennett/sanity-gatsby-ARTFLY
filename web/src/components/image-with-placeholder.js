@@ -6,7 +6,12 @@ import { imageUrlFor } from "../lib/image-url";
 const ImageWithPlaceHolder = ({ image, maxWidth, maxHeight, style = {} }) => {
   const [imgOpacity, setImgOpacity] = useState(0);
 
-  if (!image || !image.asset) return null;
+  if (!image || !image.asset)
+    return (
+      <div>
+        <img src={"https://via.placeholder.com/400x300.png?text=PHOTO+OR+IT+NEVER+HAPPENED!"} />
+      </div>
+    );
 
   const { metadata } = image.asset;
   let { height: _height, width: _width } = metadata.dimensions;
