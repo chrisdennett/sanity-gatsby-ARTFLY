@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import ProjectTags from "../components/project-tags";
+import SectionHeader from "../components/section-header";
 
 const Home = ({ projectNodes, tagNodes }) => {
   const featuredProjects = projectNodes.filter(
@@ -17,7 +18,8 @@ const Home = ({ projectNodes, tagNodes }) => {
 
   return (
     <Wrapper>
-      <h2>Featured Projects:</h2>
+      {/* <h2>Featured Projects:</h2> */}
+      <SectionHeader title={"Featured Projects"} />
       {projectNodes && (
         <>
           <ProjectPreviewGrid nodes={featuredProjects} />
@@ -26,15 +28,19 @@ const Home = ({ projectNodes, tagNodes }) => {
 
       {otherProjects.length > 0 && (
         <>
-          <h3>Other Projects:</h3>
+          <SectionHeader title={"Other Projects"} />
           <ProjectPreviewGrid nodes={otherProjects} />
         </>
       )}
 
       {draftProjects && (
         <>
-          <h3>DRAFT PROJECTS</h3>
-          <p>These haven't be written up yet - basically this is our todo list made public!</p>
+          <SectionHeader
+            title={"DRAFT Projects to write up"}
+            description={
+              "These haven't be written up yet - basically this is our todo list made public!"
+            }
+          />
           <ProjectPreviewGrid nodes={draftProjects} />
         </>
       )}
