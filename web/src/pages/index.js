@@ -30,7 +30,7 @@ export const query = graphql`
       sort: { fields: [publishedAt], order: DESC }
       filter: {
         slug: { current: { ne: null } }
-        projectTypes: { ne: "draft" }
+        # projectTypes: { ne: "draft" }
         isFeatured: { eq: true }
       }
     ) {
