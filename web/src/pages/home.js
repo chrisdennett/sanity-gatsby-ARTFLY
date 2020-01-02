@@ -8,11 +8,6 @@ import SectionHeader from "../components/section-header";
 const Home = ({ projectNodes, tagNodes }) => {
   if (!projectNodes) return null;
 
-  console.log(
-    "projectNodes: ",
-    projectNodes.filter(p => p.title === "Sick Toys")
-  );
-
   const featuredProjects = projectNodes.filter(
     proj => proj.projectTypes === "project" && proj.isFeatured === true
   );

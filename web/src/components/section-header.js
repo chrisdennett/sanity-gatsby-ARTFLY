@@ -17,6 +17,7 @@ const lineColour = `rgba(0, 0, 0, 0.2)`;
 const HEADER = styled.div`
   text-align: center;
   padding: 20px 0 20px 0;
-  border-top: 5px double ${lineColour};
-  border-bottom: 5px double ${lineColour};
+  border-top: 2px dashed ${lineColour};
+  border-bottom: 2px dashed ${lineColour};
+  text-transform: uppercase;
 `;

@@ -38,7 +38,7 @@ export default {
           },
           {
             title: "Frontend",
-            value: "https://sanity-gatsby-ARTFLY.netlify.com",
+            value: "https://artfly.io",
             category: "apps"
           }
         ]
