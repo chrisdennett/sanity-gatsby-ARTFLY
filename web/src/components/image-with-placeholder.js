@@ -48,7 +48,7 @@ const ImageWithPlaceHolder = ({ image, maxWidth, maxHeight, style = {} }) => {
     <div style={style}>
       <div style={{ maxWidth: _maxWidth, margin: "auto" }}>
         <ImageWithPlaceholderInternal
-          imgOpacity={imgOpacity}
+          imgOpacity={1}
           widthToHeightRatio={widthToHeightRatio}
           heightToWidthRatio={heightToWidthRatio}
           includePadding={includePadding}
