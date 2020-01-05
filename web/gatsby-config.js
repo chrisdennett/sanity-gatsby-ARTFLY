@@ -20,6 +20,14 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Artfly Projects`,
+        short_name: `Artfly`,
+        icon: `src/img/favicon-32x32.png`
+      }
     }
   ]
 };
