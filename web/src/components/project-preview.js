@@ -5,6 +5,7 @@ import { Link } from "gatsby";
 import BlockText from "./block-text";
 import ImageWithPlaceHolder from "./image-with-placeholder";
 
+import Img from "gatsby-image";
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 
@@ -16,18 +17,18 @@ const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
 
   const fluidProps = getFluidGatsbyImage(
     mainImage.asset,
-    { maxWidth: maxImgWidth },
+    { maxWidth: maxImgWidth, maxHeight: 300 },
     clientConfig.sanity
   );
 
   return (
     <ProjectCardStyled to={`/project/${slug.current}`}>
       <ThumbImgHolderStyled>
-        <ImageWithPlaceHolder image={mainImage} maxWidth={400} maxHeight={300} />
+        <Img fluid={fluidProps} alt={mainImage.alt} />
       </ThumbImgHolderStyled>
-      <ThumbImgHolderStyled>
+      {/* <ThumbImgHolderStyled>
         <ImageWithPlaceHolder image={mainImage} maxWidth={400} maxHeight={300} />
-      </ThumbImgHolderStyled>
+      </ThumbImgHolderStyled> */}
       <h3>{title}</h3>
       {_rawExcerpt && (
         <div>
