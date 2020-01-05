@@ -1,23 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-// comps
-import BlockText from "./block-text";
-import ImageWithPlaceHolder from "./image-with-placeholder";
-
 import Img from "gatsby-image";
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
+// comps
+import BlockText from "./block-text";
 
 const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
-  if (!mainImage) return null;
-  const { height, width } = mainImage.asset.metadata.dimensions;
-  const isPortrait = height > width;
-  const maxImgWidth = isPortrait ? 300 : 500;
+  if (!mainImage) {
+    return (
+      <ProjectCardStyled to={`/project/${slug.current}`}>
+        <ThumbImgHolderStyled>
+          <div>
+            <img src={"https://via.placeholder.com/400x300.png?text=PHOTO+OR+IT+NEVER+HAPPENED!"} />
+          </div>
+        </ThumbImgHolderStyled>
+        <h3>{title}</h3>
+        {_rawExcerpt && (
+          <div>
+            <BlockText blocks={_rawExcerpt} />
+          </div>
+        )}
+      </ProjectCardStyled>
+    );
+  }
 
   const fluidProps = getFluidGatsbyImage(
     mainImage.asset,
-    { maxWidth: maxImgWidth, maxHeight: 300 },
+    { maxWidth: 400, maxHeight: 300 },
     clientConfig.sanity
   );
 
@@ -26,9 +37,6 @@ const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
       <ThumbImgHolderStyled>
         <Img fluid={fluidProps} alt={mainImage.alt} />
       </ThumbImgHolderStyled>
-      {/* <ThumbImgHolderStyled>
-        <ImageWithPlaceHolder image={mainImage} maxWidth={400} maxHeight={300} />
-      </ThumbImgHolderStyled> */}
       <h3>{title}</h3>
       {_rawExcerpt && (
         <div>
@@ -58,4 +66,13 @@ const ProjectCardStyled = styled(Link)`
   }
 `;
 
-const ThumbImgHolderStyled = styled.div``;
+const ThumbImgHolderStyled = styled.div`
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  img {
+    border-radius: 10px;
+    transition: opacity 500ms ease 0s;
+    border-radius: 10px;
+  }
+`;
