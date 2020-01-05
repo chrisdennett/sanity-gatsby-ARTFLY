@@ -5,9 +5,26 @@ import { Link } from "gatsby";
 import BlockText from "./block-text";
 import ImageWithPlaceHolder from "./image-with-placeholder";
 
+import { getFluidGatsbyImage } from "gatsby-source-sanity";
+import clientConfig from "../../client-config";
+
 const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
+  if (!mainImage) return null;
+  const { height, width } = mainImage.asset.metadata.dimensions;
+  const isPortrait = height > width;
+  const maxImgWidth = isPortrait ? 300 : 500;
+
+  const fluidProps = getFluidGatsbyImage(
+    mainImage.asset,
+    { maxWidth: maxImgWidth },
+    clientConfig.sanity
+  );
+
   return (
     <ProjectCardStyled to={`/project/${slug.current}`}>
+      <ThumbImgHolderStyled>
+        <ImageWithPlaceHolder image={mainImage} maxWidth={400} maxHeight={300} />
+      </ThumbImgHolderStyled>
       <ThumbImgHolderStyled>
         <ImageWithPlaceHolder image={mainImage} maxWidth={400} maxHeight={300} />
       </ThumbImgHolderStyled>
