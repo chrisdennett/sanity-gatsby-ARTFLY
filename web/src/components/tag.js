@@ -5,16 +5,27 @@ import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 import BlockContent from "./block-content";
 import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./project";
+import ProjectPreviewGrid from "./project-preview-grid";
+import SectionHeader from "./section-header";
 
-function Tag(props) {
-  const { _rawBio, name, image } = props;
-
+const Tag = ({ _rawBio, name, image, projectNodes }) => {
+  if (!projectNodes) return null;
   const { height, width } = image.asset.metadata.dimensions;
 
   const maxWidth = Math.min(600, width);
   const maxHeight = Math.min(400, height);
 
   const fluidProps = getFluidGatsbyImage(image.asset, { maxWidth, maxHeight }, clientConfig.sanity);
+
+  const featuredProjects = projectNodes.filter(
+    proj => proj.projectTypes === "project" && proj.isFeatured === true
+  );
+
+  const otherProjects = projectNodes.filter(
+    proj => proj.projectTypes === "project" && proj.isFeatured !== true
+  );
+
+  const draftProjects = projectNodes.filter(proj => proj.projectTypes === "draft");
 
   return (
     <PageStyled>
@@ -28,12 +39,44 @@ function Tag(props) {
         </INTRO>
 
         <MainContentStyled>{_rawBio && <BlockContent blocks={_rawBio || []} />}</MainContentStyled>
+
+        <ProjectsSectionStyled>
+          <SectionHeader title={"Featured Projects"} />
+          {projectNodes && (
+            <>
+              <ProjectPreviewGrid nodes={featuredProjects} />
+            </>
+          )}
+
+          {otherProjects.length > 0 && (
+            <>
+              <SectionHeader title={"Other Projects"} />
+              <ProjectPreviewGrid nodes={otherProjects} />
+            </>
+          )}
+
+          {draftProjects.length > 0 && (
+            <>
+              <SectionHeader
+                title={"DRAFT Projects to write up"}
+                description={
+                  "These haven't be written up yet - basically this is our todo list made public!"
+                }
+              />
+              <ProjectPreviewGrid nodes={draftProjects} />
+            </>
+          )}
+        </ProjectsSectionStyled>
       </MainWrapperStyled>
     </PageStyled>
   );
-}
+};
 
 export default Tag;
+
+const ProjectsSectionStyled = styled.div`
+  margin-top: 40px;
+`;
 
 const ThumbImgHolderStyled = styled.div`
   max-width: ${props => props.maxWidth}px;

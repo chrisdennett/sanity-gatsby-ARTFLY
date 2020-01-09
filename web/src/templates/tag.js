@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../lib/helpers";
 import Tag from "../components/tag";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -8,6 +9,11 @@ import Layout from "../containers/layout";
 const TagTemplate = props => {
   const { data, errors } = props;
   const tag = data && data.tag;
+
+  const projectNodes = (data || {}).projects
+    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    : [];
+
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
@@ -18,7 +24,7 @@ const TagTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </div>
       )}
-      {tag && <Tag {...tag} />}
+      {tag && <Tag {...tag} projectNodes={projectNodes} />}
     </Layout>
   );
 };
@@ -53,6 +59,44 @@ export const query = graphql`
           }
         }
         alt
+      }
+    }
+    projects: allSanityProject(
+      limit: 1000
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, tags: { elemMatch: { id: { eq: $id } } } }
+    ) {
+      edges {
+        node {
+          id
+          mainImage {
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+            asset {
+              _id
+              metadata {
+                lqip
+                isOpaque
+                dimensions {
+                  width
+                  height
+                }
+              }
+            }
+            alt
+          }
+          title
+          projectTypes
+          isFeatured
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
       }
     }
   }

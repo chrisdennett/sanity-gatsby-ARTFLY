@@ -35,7 +35,7 @@ const Home = ({ projectNodes, tagNodes }) => {
         </>
       )}
 
-      {draftProjects && (
+      {draftProjects.length > 0 && (
         <>
           <SectionHeader
             title={"DRAFT Projects to write up"}
