@@ -9,16 +9,17 @@ import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./proje
 function Tag(props) {
   const { _rawBio, name, image } = props;
 
-  const fluidProps = getFluidGatsbyImage(
-    image.asset,
-    { maxWidth: 600, maxHeight: 400 },
-    clientConfig.sanity
-  );
+  const { height, width } = image.asset.metadata.dimensions;
+
+  const maxWidth = Math.min(600, width);
+  const maxHeight = Math.min(400, height);
+
+  const fluidProps = getFluidGatsbyImage(image.asset, { maxWidth, maxHeight }, clientConfig.sanity);
 
   return (
     <PageStyled>
       <MainWrapperStyled>
-        <ThumbImgHolderStyled>
+        <ThumbImgHolderStyled maxWidth={maxWidth}>
           <Img fluid={fluidProps} alt={image.alt} />
         </ThumbImgHolderStyled>
 
@@ -35,7 +36,7 @@ function Tag(props) {
 export default Tag;
 
 const ThumbImgHolderStyled = styled.div`
-  max-width: 600px;
+  max-width: ${props => props.maxWidth}px;
   width: 100%;
   margin: 0 auto 40px auto;
   border-radius: 10px;

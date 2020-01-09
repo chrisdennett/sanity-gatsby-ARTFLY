@@ -58,6 +58,14 @@ ol[class] {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  color: rgb(255, 102, 0);
+  text-decoration: none;
+}
+
+a[target="_blank"]:after {
+  font-size: 0.8rem;
+  font-family: "FontAwesome";
+  content: " \f08e ";
 }
 
 /* Make images easier to work with */
