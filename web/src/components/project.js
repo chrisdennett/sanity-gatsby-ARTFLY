@@ -12,11 +12,9 @@ import ProjectTags from "./project-tags";
 const Project = props => {
   const { _rawBody, title, mainImage, _rawExcerpt, publishedAt, tags } = props;
 
-  const fluidProps = getFluidGatsbyImage(
-    mainImage.asset,
-    { maxWidth: 600, maxHeight: 400 },
-    clientConfig.sanity
-  );
+  const fluidProps = !mainImage
+    ? null
+    : getFluidGatsbyImage(mainImage.asset, { maxWidth: 600, maxHeight: 400 }, clientConfig.sanity);
 
   return (
     <PageStyled>
