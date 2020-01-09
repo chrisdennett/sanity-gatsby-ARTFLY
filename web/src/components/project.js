@@ -1,14 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
+import { getFluidGatsbyImage } from "gatsby-source-sanity";
+import clientConfig from "../../client-config";
 // helpers
 import { format } from "date-fns";
 // comps
 import BlockContent from "./block-content";
 import ProjectTags from "./project-tags";
-import ImageWithPlaceHolder from "./image-with-placeholder";
 
 const Project = props => {
   const { _rawBody, title, mainImage, _rawExcerpt, publishedAt, tags } = props;
+
+  const fluidProps = getFluidGatsbyImage(
+    mainImage.asset,
+    { maxWidth: 600, maxHeight: 400 },
+    clientConfig.sanity
+  );
 
   return (
     <PageStyled>
@@ -30,9 +38,9 @@ const Project = props => {
         </INTRO>
 
         {mainImage && (
-          <MainImageHolderStyled>
-            <ImageWithPlaceHolder image={mainImage} maxWidth={960} />
-          </MainImageHolderStyled>
+          <ThumbImgHolderStyled>
+            <Img fluid={fluidProps} alt={mainImage.alt} />
+          </ThumbImgHolderStyled>
         )}
 
         {/* MAIN CONTENT */}
@@ -51,6 +59,20 @@ export default Project;
 //
 export const PageStyled = styled.article`
   padding: 0 1rem;
+`;
+
+const ThumbImgHolderStyled = styled.div`
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  img {
+    border-radius: 10px;
+    transition: opacity 500ms ease 0s;
+    border-radius: 10px;
+  }
 `;
 
 export const MainImageHolderStyled = styled.div`

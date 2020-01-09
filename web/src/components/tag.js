@@ -5,7 +5,6 @@ import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 import BlockContent from "./block-content";
 import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./project";
-import ImageWithPlaceHolder from "./image-with-placeholder";
 
 function Tag(props) {
   const { _rawBio, name, image } = props;
@@ -23,8 +22,6 @@ function Tag(props) {
           <Img fluid={fluidProps} alt={image.alt} />
         </ThumbImgHolderStyled>
 
-        <ImageWithPlaceHolder image={image} maxWidth={600} style={{ marginBottom: 30 }} />
-
         <INTRO>
           <h1>{name}</h1>
         </INTRO>
@@ -40,7 +37,7 @@ export default Tag;
 const ThumbImgHolderStyled = styled.div`
   max-width: 600px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 

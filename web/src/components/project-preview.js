@@ -10,7 +10,7 @@ import BlockText from "./block-text";
 const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
   if (!mainImage) {
     return (
-      <ProjectCardStyled to={`/project/${slug.current}`}>
+      <ProjectCardStyled to={`/${slug.current}`}>
         <ThumbImgHolderStyled>
           <div>
             <img src={"https://via.placeholder.com/400x300.png?text=PHOTO+OR+IT+NEVER+HAPPENED!"} />
@@ -33,7 +33,7 @@ const ProjectPreview = ({ title, _rawExcerpt, slug, mainImage }) => {
   );
 
   return (
-    <ProjectCardStyled to={`/project/${slug.current}`}>
+    <ProjectCardStyled to={`/${slug.current}`}>
       <ThumbImgHolderStyled>
         <Img fluid={fluidProps} alt={mainImage.alt} />
       </ThumbImgHolderStyled>
