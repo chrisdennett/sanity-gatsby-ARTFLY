@@ -12,6 +12,8 @@ export default ({ node }) => {
       <Wrapper>
         <IFrameWrapperStyled>
           <ReactPlayer
+            style={{ maxWidth: 640 }}
+            width={"100%"}
             url={node.url}
             config={{
               youtube: {
