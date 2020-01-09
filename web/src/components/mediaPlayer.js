@@ -15,11 +15,16 @@ export default ({ node }) => {
             style={{ maxWidth: 640 }}
             width={"100%"}
             url={node.url}
+            loop={true}
             config={{
               youtube: {
+                preload: true,
                 playerVars: { showinfo: 1 }
               },
-              soundcloud: { show_artwork: false }
+              vimeo: {
+                preload: true
+              },
+              soundcloud: { show_artwork: false, preload: true }
             }}
           />
         </IFrameWrapperStyled>
