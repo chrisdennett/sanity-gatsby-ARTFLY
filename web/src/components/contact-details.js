@@ -5,6 +5,8 @@ import { IoLogoYoutube } from "react-icons/io";
 import ExternalLink from "./externalLink";
 
 const ContactDetails = ({ contactDetails }) => {
+  console.log("contactDetails: ", contactDetails);
+
   return (
     <Container>
       <SocialLinks>
