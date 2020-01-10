@@ -17,6 +17,7 @@ import twitter from "./objects/twitter";
 import facebook from "./objects/facebook";
 import extendedPortableText from "./objects/extendedPortableText";
 import simplePortableText from "./objects/simplePortableText";
+import contactDetails from "./objects/contactDetails";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,6 +35,7 @@ export default createSchema({
     facebook,
     extendedPortableText,
     simplePortableText,
+    contactDetails,
     // The following are document types which will appear
     // in the studio.
     person,

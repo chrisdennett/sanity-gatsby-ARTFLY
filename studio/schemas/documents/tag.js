@@ -40,7 +40,7 @@ export default {
     {
       name: "contactDetails",
       title: "Contact Details",
-      type: "string"
+      type: "contactDetails"
     },
     {
       name: "bio",
