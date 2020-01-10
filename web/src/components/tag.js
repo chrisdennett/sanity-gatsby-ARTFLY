@@ -33,6 +33,8 @@ const Tag = ({ _rawBio, name, image, projectNodes, contactDetails }) => {
   //   email: "chrisdennett@gmail.com<"
   // };
 
+  console.log("contactDetails: ", contactDetails);
+
   return (
     <PageStyled>
       <MainWrapperStyled>

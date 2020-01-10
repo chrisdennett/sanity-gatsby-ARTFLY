@@ -35,7 +35,6 @@ export const query = graphql`
     tag: sanityTag(id: { eq: $id }) {
       id
       name
-      contactDetails
       slug {
         current
       }
