@@ -40,7 +40,7 @@ export default {
     {
       name: "contactDetails",
       title: "Contact Details",
-      type: "object",
+      type: "document",
       options: { collapsible: true, collapsed: false },
       fields: [
         { name: "email", type: "string", title: "Email" },
