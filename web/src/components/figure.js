@@ -1,7 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
-// TODO: Replace this with ImageWithPlaceholder component - but it'll need styling alterations
 //https://github.com/sanity-io/gatsby-source-sanity#fluid
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";

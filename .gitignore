@@ -6,3 +6,6 @@
 
 # lerna files
 /lerna-debug.log
+
+# old files
+/_archive

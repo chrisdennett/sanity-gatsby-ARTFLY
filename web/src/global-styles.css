@@ -63,9 +63,9 @@ a:not([class]) {
 }
 
 a[target="_blank"]:after {
-  font-size: 0.8rem;
+  /* font-size: 0.8rem;
   font-family: "FontAwesome";
-  content: " \f08e ";
+  content: " \f08e "; */
 }
 
 /* Make images easier to work with */

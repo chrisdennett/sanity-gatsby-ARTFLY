@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+import { buildImageObj } from "../web/src/lib/helpers";
+import { imageUrlFor } from "../web/src/lib/image-url";
 
 const ImageWithPlaceHolder = ({ image, maxWidth, maxHeight, style = {} }) => {
   const [imgOpacity, setImgOpacity] = useState(0);

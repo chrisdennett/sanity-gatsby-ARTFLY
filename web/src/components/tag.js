@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Img from "gatsby-image";
+
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 import BlockContent from "./block-content";
 import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./project";
 import ProjectPreviewGrid from "./project-preview-grid";
 import SectionHeader from "./section-header";
+import ContactDetails from "./contact-details";
 
 const Tag = ({ _rawBio, name, image, projectNodes }) => {
   if (!projectNodes) return null;
@@ -27,6 +29,10 @@ const Tag = ({ _rawBio, name, image, projectNodes }) => {
 
   const draftProjects = projectNodes.filter(proj => proj.projectTypes === "draft");
 
+  const contactDetails = {
+    email: "chrisdennett@gmail.com<"
+  };
+
   return (
     <PageStyled>
       <MainWrapperStyled>
@@ -37,6 +43,8 @@ const Tag = ({ _rawBio, name, image, projectNodes }) => {
         <INTRO>
           <h1>{name}</h1>
         </INTRO>
+
+        {contactDetails && <ContactDetails contactDetails={contactDetails} />}
 
         <MainContentStyled>{_rawBio && <BlockContent blocks={_rawBio || []} />}</MainContentStyled>
 

@@ -5,6 +5,8 @@ import MediaPlayer from "./mediaPlayer";
 import TwitterPost from "./twitterPost";
 import FacebookPost from "./facebookPost";
 import InternalLink from "./internal-link";
+import ExternalLink from "./externalLink";
+import { Link } from "gatsby";
 
 const serializers = {
   types: {
@@ -19,13 +21,9 @@ const serializers = {
     internalLink: InternalLink,
     link: ({ mark, children }) => {
       if (mark.blank) {
-        return (
-          <a href={mark.href} target="_blank" rel="noopener noreferrer">
-            {children}
-          </a>
-        );
+        return <ExternalLink to={mark.href}>{children}</ExternalLink>;
       } else {
-        return <a href={mark.href}>{children}</a>;
+        return <Link to={mark.href}>{children}</Link>;
       }
     }
   }
