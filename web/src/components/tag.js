@@ -9,6 +9,7 @@ import { INTRO, MainContentStyled, MainWrapperStyled, PageStyled } from "./proje
 import ProjectPreviewGrid from "./project-preview-grid";
 import SectionHeader from "./section-header";
 import ContactDetails from "./contact-details";
+import { Link } from "gatsby";
 
 const Tag = ({ _rawBio, name, image, projectNodes, contactDetails }) => {
   if (!projectNodes) return null;
@@ -28,12 +29,6 @@ const Tag = ({ _rawBio, name, image, projectNodes, contactDetails }) => {
   );
 
   const draftProjects = projectNodes.filter(proj => proj.projectTypes === "draft");
-
-  // const contactDetails = {
-  //   email: "chrisdennett@gmail.com<"
-  // };
-
-  console.log("contactDetails: ", contactDetails);
 
   return (
     <PageStyled>
