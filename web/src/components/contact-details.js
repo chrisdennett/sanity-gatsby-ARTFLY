@@ -5,28 +5,47 @@ import { IoLogoYoutube } from "react-icons/io";
 import ExternalLink from "./externalLink";
 
 const ContactDetails = ({ contactDetails }) => {
-  console.log("contactDetails: ", contactDetails);
+  const { email, facebook, instagram, twitter, linkedIn, youTube } = contactDetails;
 
   return (
     <Container>
       <SocialLinks>
-        <a href="https://twitter.com/artflychris">
-          <FaTwitterSquare />
-        </a>
-        <a href="https://www.facebook.com/artfly.io/">
-          <FaFacebookSquare />
-        </a>
-        <a href="https://www.linkedin.com/in/chris-dennett-artfly/">
-          <FaLinkedin />
-        </a>
-        <a href="https://www.youtube.com/user/nedland42/videos">
-          <IoLogoYoutube />
-        </a>
+        {twitter && (
+          <ExternalLink to={twitter} showExternalLinkIcon={false}>
+            <FaTwitterSquare />
+          </ExternalLink>
+        )}
+
+        {facebook && (
+          <ExternalLink to={facebook} showExternalLinkIcon={false}>
+            <FaFacebookSquare />
+          </ExternalLink>
+        )}
+
+        {instagram && (
+          <ExternalLink to={instagram} showExternalLinkIcon={false}>
+            <FaLinkedin />
+          </ExternalLink>
+        )}
+
+        {linkedIn && (
+          <ExternalLink to={linkedIn} showExternalLinkIcon={false}>
+            <FaLinkedin />
+          </ExternalLink>
+        )}
+
+        {youTube && (
+          <ExternalLink to={youTube} showExternalLinkIcon={false}>
+            <IoLogoYoutube />
+          </ExternalLink>
+        )}
       </SocialLinks>
 
-      <ExternalLink to={`mailto:chrisdennett@gmail.com`} withExternalLinkIcon={false}>
-        chrisdennett@gmail.com
-      </ExternalLink>
+      {email && (
+        <ExternalLink to={`mailto:${email}`} showExternalLinkIcon={false}>
+          {email}
+        </ExternalLink>
+      )}
     </Container>
   );
 };

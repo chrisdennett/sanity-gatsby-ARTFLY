@@ -1,10 +1,10 @@
 import React from "react";
 import { GoLinkExternal } from "react-icons/go";
 
-const ExternalLink = ({ style, children, to, withExternalLinkIcon = true }) => (
+const ExternalLink = ({ style, children, to, showExternalLinkIcon = true }) => (
   <a href={to} target="_blank" rel="noopener noreferrer" style={style}>
     {children}{" "}
-    {withExternalLinkIcon && (
+    {showExternalLinkIcon && (
       <span>
         <GoLinkExternal />{" "}
       </span>

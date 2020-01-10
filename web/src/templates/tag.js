@@ -39,6 +39,14 @@ export const query = graphql`
         current
       }
       tagTypes
+      contactDetails {
+        email
+        twitter
+        facebook
+        youTube
+        linkedIn
+        instagram
+      }
       _rawBio(resolveReferences: { maxDepth: 5 })
       image {
         crop {
