@@ -36,7 +36,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Home projectNodes={projectNodes} tagNodes={tagNodes} />
+      <Home projectNodes={projectNodes} tagNodes={tagNodes} intro={site._rawIntro} />
     </Layout>
   );
 };
@@ -48,6 +48,7 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
+      _rawIntro(resolveReferences: { maxDepth: 5 })
       keywords
     }
     tags: allSanityTag {

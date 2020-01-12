@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
+import BlockContent from "../components/block-content";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import ProjectTags from "../components/project-tags";
 import SectionHeader from "../components/section-header";
 
-const Home = ({ projectNodes, tagNodes }) => {
+const Home = ({ projectNodes, tagNodes, intro }) => {
   if (!projectNodes) return null;
 
   const featuredProjects = projectNodes.filter(
@@ -20,7 +20,11 @@ const Home = ({ projectNodes, tagNodes }) => {
 
   return (
     <Wrapper>
-      <div>hhhh</div>
+      {intro && (
+        <Intro>
+          <BlockContent blocks={intro || []} />
+        </Intro>
+      )}
 
       <SectionHeader title={"Featured Projects"} />
       {projectNodes && (
@@ -74,4 +78,11 @@ export const TAGS_HOLDER = styled.div`
   div {
     margin: 15px;
   }
+`;
+
+const Intro = styled.div`
+  font-size: 1.5rem;
+  margin: 0 auto 40px auto;
+  max-width: 960px;
+  text-align: center;
 `;

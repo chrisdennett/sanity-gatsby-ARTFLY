@@ -9,6 +9,7 @@ const PageLayout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     <MainStyled>{children}</MainStyled>
     <FooterStyled>
       <div>© {new Date().getFullYear()} ArtFly</div>
+      <img src={"../img/Rotoscoping.gif"} />
     </FooterStyled>
   </>
 );

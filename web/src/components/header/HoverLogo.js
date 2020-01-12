@@ -130,6 +130,7 @@ const ShadowGroupStyled = styled.rect`
 const SvgStyled = styled.svg`
   height: 160px;
   width: 110px;
+  min-width: 50px;
 
   @keyframes logoHover {
     0% {
