@@ -20,6 +20,8 @@ const Home = ({ projectNodes, tagNodes }) => {
 
   return (
     <Wrapper>
+      <div>hhhh</div>
+
       <SectionHeader title={"Featured Projects"} />
       {projectNodes && (
         <>

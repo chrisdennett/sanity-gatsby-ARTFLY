@@ -29,6 +29,12 @@ export default {
       options: {
         layout: "tags"
       }
+    },
+    {
+      name: "intro",
+      type: "extendedPortableText",
+      title: "Intro Text",
+      description: "This will go on the home page."
     }
   ]
 };
