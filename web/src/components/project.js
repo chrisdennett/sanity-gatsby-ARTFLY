@@ -135,6 +135,7 @@ export const MainContentStyled = styled.div`
   align-items: flex-start;
 
   p,
+  blockquote,
   ul,
   ol,
   h1,
@@ -164,6 +165,12 @@ export const MainContentStyled = styled.div`
 
   ul {
     padding-bottom: 10px;
+  }
+
+  blockquote {
+    border-left: 5px solid #bbb;
+    font-style: italic;
+    padding-left: 10px;
   }
 
   @media (max-width: 700px) {
