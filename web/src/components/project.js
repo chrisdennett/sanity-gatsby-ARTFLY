@@ -171,6 +171,8 @@ export const MainContentStyled = styled.div`
     border-left: 5px solid #bbb;
     font-style: italic;
     padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 700px) {
