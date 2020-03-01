@@ -4,12 +4,16 @@ import styled from "styled-components";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export default ({ node }) => {
-  if (!node.url) {
+  console.log("Twitter Post: ", node);
+
+  if (!node || !node.url) {
     return null;
   }
 
+  //https://twitter.com/paulrickards/status/1150519293215465475?lang=en
+
   const { url } = node;
-  const tweetId = url.split("/").pop();
+  const tweetId = url ? url.split("/").pop() : "42";
 
   return (
     <Outer>

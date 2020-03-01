@@ -5,7 +5,8 @@ import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const TwitterPreview = ({ value }) => {
   const { url } = value;
-  const tweetId = url.split("/").pop();
+
+  const tweetId = url ? url.split("/").pop() : null;
 
   if (!tweetId) {
     return <div>Missing Tweet URL</div>;
