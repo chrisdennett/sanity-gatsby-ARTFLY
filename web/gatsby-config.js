@@ -1,19 +1,26 @@
 // Load variables from `.env` as soon as possible
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}`
-});
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+})
 
-const clientConfig = require("./client-config");
-const token = process.env.SANITY_READ_TOKEN;
+const clientConfig = require('./client-config')
+const token = process.env.SANITY_READ_TOKEN
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-react-helmet',
     {
-      resolve: "gatsby-source-sanity",
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+        apiKey: 'Yjc3ZGM1OTQtMTgxNi00NjVkLWI4ZjItOGU5MTY5NmVjNDg1NjM3MjQ1MjE0OTUxNTIxOTY0',
+        autopop: true
+      }
+    },
+    {
+      resolve: 'gatsby-source-sanity',
       options: {
         ...clientConfig.sanity,
         token,
@@ -30,4 +37,4 @@ module.exports = {
       }
     }
   ]
-};
+}
