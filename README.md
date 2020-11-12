@@ -2,8 +2,8 @@
 
 A place for all of chris and jennie's projects with two main purposes.
 
-- A showcase to help us get funding for more projects.
-- A personal scrapbook of memories.
+- A portfolio for Chris and Jennie Dennett's projects
+- Helps our old brains remember what we've done!
 
 ---
 
