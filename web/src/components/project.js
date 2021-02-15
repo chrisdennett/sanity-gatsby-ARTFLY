@@ -90,7 +90,7 @@ export const MainWrapperStyled = styled.div`
 
 export const INTRO = styled.aside`
   padding: 0 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
